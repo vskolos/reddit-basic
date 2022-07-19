@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 const NODE_ENV = process.env.NODE_ENV

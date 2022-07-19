@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const webpack = require('webpack')
 const [webpackClientConfig, webpackServerConfig] = require('../webpack.config')
 const nodemon = require('nodemon')
