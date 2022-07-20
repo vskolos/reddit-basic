@@ -1,1 +1,1 @@
-export * from './KarmaCounter';
+export * from './KarmaCounter'

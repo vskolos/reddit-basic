@@ -1,1 +1,1 @@
-export * from './CommentsButton';
+export * from './CommentsButton'
