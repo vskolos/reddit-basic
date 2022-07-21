@@ -29,20 +29,20 @@ hmrServer.use(
 )
 
 hmrServer.listen(3001, () => {
-  console.log('Hmr Server successfully started')
+  console.log('HMR Server successfully started')
 })
 
 const compiler = webpack(webpackServerConfig)
 
 compiler.run((err) => {
   if (err) {
-    console.log('compilation failed:', err)
+    console.log('Compilation failed:', err)
   }
   compiler.watch({}, (err) => {
     if (err) {
-      console.log('compilation failed:', err)
+      console.log('Compilation failed:', err)
     }
-    console.log('Compilation was successfully')
+    console.log('Compilation was successfull')
   })
 
   nodemon({
