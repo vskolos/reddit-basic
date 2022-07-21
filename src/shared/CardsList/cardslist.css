@@ -1,5 +1,11 @@
+.cardsList {
+  display: grid;
+  gap: 20px;
+}
+
 @media all and (min-width: 1024px) {
   .cardsList {
-    padding: 40px 0;
+    padding: 20px 0;
+    gap: 0;
   }
 }

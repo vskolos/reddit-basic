@@ -1,0 +1,36 @@
+.menuItemsList {
+  display: grid;
+  background-color: var(--white);
+  border-radius: 3px;
+}
+
+.menuItem {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background-color: var(--white);
+}
+
+.divider {
+  margin: 0 20px;
+  height: 1px;
+  background-color: var(--greyEC);
+}
+
+.closeButton {
+  background-color: var(--greyD9);
+  padding: 12px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+@media all and (min-width: 1540px) {
+  .menuItem {
+    padding: 5px 20px;
+  }
+
+  .closeButton {
+    display: none;
+  }
+}

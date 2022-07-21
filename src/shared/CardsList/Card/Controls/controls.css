@@ -1,23 +1,21 @@
 .controls {
+  padding: 10px 20px;
   position: relative;
   display: flex;
-  flex-flow: row nowrap;
+  align-items: center;
   justify-content: space-between;
 }
 
 .actions {
   display: flex;
-  flex-flow: row nowrap;
-}
-.actions > * + * {
-  margin: 0 0 0 13px;
+  gap: 13px;
 }
 
 @media all and (min-width: 1024px) {
   .controls {
-    order: 3;
-    flex: 0 0;
-    margin: 0 0 0 24px;
+    padding: 0;
+    gap: 24px;
+    order: 2;
   }
 
   .actions {
