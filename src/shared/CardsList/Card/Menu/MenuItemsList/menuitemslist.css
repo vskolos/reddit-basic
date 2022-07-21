@@ -6,16 +6,30 @@
 
 .menuItem {
   padding: 12px 20px;
+  position: relative;
   display: flex;
   align-items: center;
   gap: 7px;
   background-color: var(--white);
 }
 
-.divider {
-  margin: 0 20px;
-  height: 1px;
-  background-color: var(--greyEC);
+.divider::after {
+  position: absolute;
+  top: 100%;
+  width: calc(100% - 40px);
+  content: '';
+  border-bottom: 1px solid var(--greyEC);
+  z-index: 1;
+}
+
+.hideOnMobile {
+  display: none;
+}
+
+@media all and (min-width: 1024px) {
+  .hideOnMobile {
+    display: flex;
+  }
 }
 
 .closeButton {

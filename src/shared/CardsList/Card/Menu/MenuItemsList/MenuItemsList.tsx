@@ -1,93 +1,64 @@
 import React from 'react'
 import { generateRandomString } from '../../../../../utils/react/generateRandomIndex'
 import { GenericList } from '../../../../GenericList'
-import {
-  CommentsIcon,
-  HideIcon,
-  ReportIcon,
-  SaveIcon,
-  ShareIcon,
-} from '../../../../Icons'
+import { EIcon, Icon } from '../../../../Icon'
 import styles from './menuitemslist.css'
 
-export function MenuItemsList() {
-  const menuItemClassName = styles.menuItem
-  const dividerClassName = styles.divider
-  const closeButtonClassName = styles.closeButton
+interface IMenuItemsListProps {
+  postId: string
+}
 
+export function MenuItemsList({ postId }: IMenuItemsListProps) {
   return (
     <div className={styles.menuItemsList}>
       <GenericList
         list={[
           {
             id: generateRandomString(),
-            icon: <CommentsIcon />,
+            icon: <Icon name={EIcon.Comments} />,
             text: 'Комментарии',
-            className: menuItemClassName,
+            className: styles.menuItem,
+            dividerClassName: styles.divider,
+            appearanceClassName: styles.hideOnMobile,
             As: 'button',
           },
           {
             id: generateRandomString(),
-            text: '',
-            className: dividerClassName,
-            As: 'div',
-          },
-          {
-            id: generateRandomString(),
-            icon: <ShareIcon />,
+            icon: <Icon name={EIcon.Share} />,
             text: 'Поделиться',
-            className: menuItemClassName,
+            className: styles.menuItem,
+            dividerClassName: styles.divider,
+            appearanceClassName: styles.hideOnMobile,
             As: 'button',
           },
           {
             id: generateRandomString(),
-            text: '',
-            className: dividerClassName,
-            As: 'div',
-          },
-          {
-            id: generateRandomString(),
-            icon: <HideIcon />,
+            icon: <Icon name={EIcon.Hide} />,
             text: 'Скрыть',
-            className: menuItemClassName,
+            className: styles.menuItem,
+            dividerClassName: styles.divider,
             As: 'button',
           },
           {
             id: generateRandomString(),
-            text: '',
-            className: dividerClassName,
-            As: 'div',
-          },
-          {
-            id: generateRandomString(),
-            icon: <SaveIcon />,
+            icon: <Icon name={EIcon.Save} />,
             text: 'Сохранить',
-            className: menuItemClassName,
+            className: styles.menuItem,
+            dividerClassName: styles.divider,
+            appearanceClassName: styles.hideOnMobile,
             As: 'button',
           },
           {
             id: generateRandomString(),
-            text: '',
-            className: dividerClassName,
-            As: 'div',
-          },
-          {
-            id: generateRandomString(),
-            icon: <ReportIcon />,
+            icon: <Icon name={EIcon.Report} />,
             text: 'Пожаловаться',
-            className: menuItemClassName,
+            className: styles.menuItem,
             As: 'button',
-          },
-          {
-            id: generateRandomString(),
-            text: '',
-            className: dividerClassName,
-            As: 'div',
           },
           {
             id: generateRandomString(),
             text: 'Закрыть',
-            className: closeButtonClassName,
+            className: styles.closeButton,
             As: 'button',
           },
         ]}

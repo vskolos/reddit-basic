@@ -1,12 +1,13 @@
 import React from 'react'
-import styles from './genericlist.css'
 
 interface IItem {
   id: string
   icon?: React.ReactNode
   text: string
-  onClick?: (id: string) => void
   className?: string
+  dividerClassName?: string
+  appearanceClassName?: string
+  onClick?: (id: string) => void
   As?: 'a' | 'li' | 'button' | 'div'
   href?: string
 }
@@ -21,17 +22,32 @@ export function GenericList({ list }: IGenericListProps) {
   return (
     <>
       {list.map(
-        ({ As = 'div', icon, text, onClick = NOOP, className, id, href }) => (
-          <As
-            className={className}
-            onClick={() => onClick(id)}
-            key={id}
-            href={href}
-          >
-            {icon}
-            {text}
-          </As>
-        )
+        ({
+          As = 'div',
+          icon,
+          text,
+          dividerClassName,
+          appearanceClassName,
+          onClick = NOOP,
+          className,
+          id,
+          href,
+        }) => {
+          let finalClassName = className
+          if (dividerClassName) finalClassName += ` ${dividerClassName}`
+          if (appearanceClassName) finalClassName += ` ${appearanceClassName}`
+          return (
+            <As
+              className={finalClassName}
+              onClick={() => onClick(id)}
+              key={id}
+              href={href}
+            >
+              {icon}
+              {text}
+            </As>
+          )
+        }
       )}
     </>
   )

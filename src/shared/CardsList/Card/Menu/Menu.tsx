@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dropdown } from '../../../Dropdown'
-import { MenuIcon } from '../../../Icons'
+import { EIcon, Icon } from '../../../Icon'
 import styles from './menu.css'
 import { MenuItemsList } from './MenuItemsList'
 
@@ -10,10 +10,10 @@ export function Menu() {
       <Dropdown
         button={
           <button className={styles.menuButton}>
-            <MenuIcon />
+            <Icon name={EIcon.Menu} />
           </button>
         }
-        children={<MenuItemsList />}
+        children={<MenuItemsList postId="1234" />}
       />
     </div>
   )
