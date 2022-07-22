@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  AnonIcon,
   CommentsIcon,
   HideIcon,
   MenuIcon,
@@ -9,6 +10,7 @@ import {
 } from './Icons'
 
 export enum EIcon {
+  Anon,
   Comments,
   Hide,
   Menu,
@@ -23,6 +25,8 @@ interface IIconProps {
 
 export function Icon({ name }: IIconProps) {
   switch (name) {
+    case EIcon.Anon:
+      return <AnonIcon />
     case EIcon.Comments:
       return <CommentsIcon />
     case EIcon.Hide:
