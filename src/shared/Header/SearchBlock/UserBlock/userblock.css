@@ -2,11 +2,13 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
 .userBox:hover span {
   color: var(--orange);
 }
+
 .userBox:hover .avatarBox {
   box-shadow: 0 0 0 1px var(--orange);
 }
