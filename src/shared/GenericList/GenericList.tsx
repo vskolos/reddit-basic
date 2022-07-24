@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import React from 'react'
 
 interface IItem {
@@ -26,19 +27,20 @@ export function GenericList({ list }: IGenericListProps) {
           As = 'div',
           icon,
           text,
+          className,
           dividerClassName,
           appearanceClassName,
           onClick = NOOP,
-          className,
           id,
           href,
         }) => {
-          let finalClassName = className
-          if (dividerClassName) finalClassName += ` ${dividerClassName}`
-          if (appearanceClassName) finalClassName += ` ${appearanceClassName}`
           return (
             <As
-              className={finalClassName}
+              className={classNames(
+                className,
+                dividerClassName,
+                appearanceClassName
+              )}
               onClick={() => onClick(id)}
               key={id}
               href={href}
