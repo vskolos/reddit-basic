@@ -1,7 +1,7 @@
 import React from 'react'
 import { usePostsData } from '../../hooks/usePostsData'
 
-export interface IPostContext {
+export interface IPostsContext {
   data: {
     id: string
     author: string
@@ -14,16 +14,16 @@ export interface IPostContext {
 }
 
 export interface IPostsContextData {
-  children?: Array<IPostContext>
+  children?: Array<IPostsContext>
 }
 
-export const postContext = React.createContext<IPostsContextData>({})
+export const postsContext = React.createContext<IPostsContextData>({})
 
-interface IPostContextProviderProps {
+interface IPostsContextProviderProps {
   children: React.ReactNode
 }
 
-export function PostContextProvider({ children }: IPostContextProviderProps) {
+export function PostsContextProvider({ children }: IPostsContextProviderProps) {
   const [data] = usePostsData()
-  return <postContext.Provider value={data}>{children}</postContext.Provider>
+  return <postsContext.Provider value={data}>{children}</postsContext.Provider>
 }

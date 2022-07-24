@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { postContext } from '../context/postContext'
+import { postsContext } from '../context/postsContext'
 import { Card } from './Card/Card'
 import styles from './cardslist.css'
 
 export function CardsList() {
-  const posts = useContext(postContext)
+  const posts = useContext(postsContext)
   const children: React.ReactNode[] = []
   if (posts.children) {
     posts.children.forEach((post) => {
