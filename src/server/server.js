@@ -22,13 +22,15 @@ app.get('/auth', (req, res) => {
           username: process.env.CLIENT_ID,
           password: '6bZfNyyY2iAcut3iyhHLjDZIFr7ZNg',
         },
-        headers: {},
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       }
     )
     .then(({ data }) => {
       res
         .status(200)
-        .send(indexTemplate(ReactDOM.renderToString(App())), data.access_token)
+        .send(indexTemplate(ReactDOM.renderToString(App()), data.access_token))
     })
     .catch(console.log)
 })
