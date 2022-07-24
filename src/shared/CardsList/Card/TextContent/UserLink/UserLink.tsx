@@ -1,7 +1,11 @@
 import React from 'react'
 import styles from './userlink.css'
 
-export function UserLink() {
+interface IUserLinkProps {
+  username: string
+}
+
+export function UserLink({ username }: IUserLinkProps) {
   return (
     <div className={styles.userLink}>
       <img
@@ -10,7 +14,7 @@ export function UserLink() {
         className={styles.avatar}
       />
       <a href="#user-url" className={styles.username}>
-        Дмитрий Гришин
+        {username}
       </a>
     </div>
   )

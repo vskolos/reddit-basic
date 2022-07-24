@@ -2,18 +2,25 @@ import React from 'react'
 import { UserLink } from './UserLink'
 import styles from './textcontent.css'
 import { Title } from './Title'
+import { createdAtTextFrom } from '../../../../utils/react/createdAtTextFrom'
 
-export function TextContent() {
+interface ITextContentProps {
+  username: string
+  date: number
+  title: string
+}
+
+export function TextContent({ username, date, title }: ITextContentProps) {
   return (
     <div className={styles.textContent}>
       <div className={styles.metaData}>
-        <UserLink />
+        <UserLink username={username} />
         <span className={styles.createdAt}>
-          <span className={styles.publishedLabel}>опубликовано </span>4 часа
-          назад
+          <span className={styles.publishedLabel}>опубликовано </span>
+          {createdAtTextFrom(date)}
         </span>
       </div>
-      <Title />
+      <Title title={title} />
     </div>
   )
 }
