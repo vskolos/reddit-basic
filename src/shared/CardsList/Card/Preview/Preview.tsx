@@ -8,9 +8,13 @@ interface IPreviewProps {
 export function Preview({ thumbnail }: IPreviewProps) {
   return (
     <div className={styles.preview}>
-      {thumbnail && thumbnail !== 'nsfw' && thumbnail !== 'default' && (
-        <img src={thumbnail} className={styles.previewImg} />
-      )}
+      {thumbnail &&
+        thumbnail !== 'nsfw' &&
+        thumbnail !== 'default' &&
+        thumbnail !== 'self' &&
+        thumbnail !== 'spoiler' && (
+          <img src={thumbnail} className={styles.previewImg} />
+        )}
     </div>
   )
 }
