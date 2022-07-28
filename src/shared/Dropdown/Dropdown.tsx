@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import ReactDOM from 'react-dom'
+import { useDropdownStyle } from '../../hooks/useDropdownStyle'
 import styles from './dropdown.css'
 
 interface IDropdownProps {
@@ -18,12 +20,15 @@ export function Dropdown({
   onOpen = NOOP,
   onClose = NOOP,
 }: IDropdownProps) {
-  const [isDropdownOpen, setIsDropdownOpen] = React.useState(isOpen)
-  React.useEffect(() => setIsDropdownOpen(isOpen), [isOpen])
-  React.useEffect(
-    () => (isDropdownOpen ? onOpen() : onClose()),
-    [isDropdownOpen]
-  )
+  const [isDropdownOpen, setIsDropdownOpen] = useState(isOpen)
+  useEffect(() => setIsDropdownOpen(isOpen), [isOpen])
+  useEffect(() => (isDropdownOpen ? onOpen() : onClose()), [isDropdownOpen])
+
+  const container = useRef<HTMLDivElement>(null)
+  const [dropdownStyle] = useDropdownStyle(container)
+
+  const modalNode = document.querySelector('#modal_root')
+  if (!modalNode) return null
 
   const handleOpen = () => {
     if (isOpen === undefined) {
@@ -32,15 +37,20 @@ export function Dropdown({
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={container}>
       <div onClick={handleOpen}>{button}</div>
-      {isDropdownOpen && (
-        <div className={styles.listContainer}>
-          <div className={styles.list} onClick={() => setIsDropdownOpen(false)}>
-            {children}
-          </div>
-        </div>
-      )}
+      {isDropdownOpen &&
+        ReactDOM.createPortal(
+          <div className={styles.listContainer} style={dropdownStyle}>
+            <div
+              className={styles.list}
+              onClick={() => setIsDropdownOpen(false)}
+            >
+              {children}
+            </div>
+          </div>,
+          modalNode
+        )}
     </div>
   )
 }

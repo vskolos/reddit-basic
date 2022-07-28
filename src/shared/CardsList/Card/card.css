@@ -14,7 +14,7 @@
   .card {
     padding: 20px 40px;
     background-color: transparent;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto 70px;
     align-items: center;
     gap: 38px;
   }

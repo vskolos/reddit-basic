@@ -3,22 +3,11 @@
 }
 
 .listContainer {
-  position: relative;
+  position: absolute;
 }
 
 .list {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 10px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   background-color: var(--white);
   z-index: 10;
-}
-
-@media (min-width: 1024px) {
-  .list {
-    right: 50%;
-    top: calc(100% + 19px);
-    transform: translateX(50%);
-  }
 }

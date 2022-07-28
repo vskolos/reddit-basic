@@ -13,6 +13,7 @@
 
 @media (min-width: 1024px) {
   .controls {
+    justify-self: center;
     padding: 0;
     gap: 24px;
     order: 2;

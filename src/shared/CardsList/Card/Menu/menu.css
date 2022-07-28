@@ -1,6 +1,7 @@
 .menu {
   position: absolute;
-  inset: 17px 15px;
+  top: 17px;
+  right: 15px;
   display: grid;
   align-items: start;
   justify-content: end;
