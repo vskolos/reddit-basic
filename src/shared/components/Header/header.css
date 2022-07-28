@@ -1,3 +1,7 @@
+@value title from "../Title/title.css";
+@value search from "../Search/search.css";
+@value userButton from "../UserButton/userbutton.css";
+
 .header {
   display: grid;
   grid-template-rows: auto minmax(46px, auto) auto;
@@ -28,7 +32,7 @@
     grid-template-rows: none;
   }
 
-  .header > .headerInfo {
+  .headerInfo {
     order: 3;
   }
 
@@ -46,7 +50,7 @@
     box-shadow: none;
   }
 
-  .headerInfo > .user {
+  .headerInfo > .userButton {
     order: 3;
   }
 
