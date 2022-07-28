@@ -1,0 +1,57 @@
+.select {
+  position: relative;
+  padding: 13px 37px 13px 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--white);
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.icon > svg {
+  display: block;
+}
+
+.text {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--orange);
+}
+
+.arrow {
+  position: absolute;
+  right: 20px;
+}
+
+.arrow > svg {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .select {
+    padding: 0;
+    gap: 3px;
+    background: none;
+  }
+
+  .icon > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .text {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .arrow {
+    position: static;
+  }
+
+  .arrow > svg {
+    width: 14px;
+    height: 8px;
+  }
+}

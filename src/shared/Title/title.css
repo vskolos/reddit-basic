@@ -1,0 +1,26 @@
+.title {
+  margin-block: 0;
+  font-weight: 400;
+}
+
+.title_page {
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.title_post {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+@media (min-width: 1024px) {
+  .title_page {
+    font-size: 28px;
+    line-height: 33px;
+  }
+
+  .title_post {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
