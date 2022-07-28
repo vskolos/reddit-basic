@@ -31,7 +31,6 @@ export function usePostsData() {
       })
       .then((resp) => {
         setData(resp.data.data)
-        console.log(resp.data.data)
       })
       .catch(console.log)
   }, [token])
