@@ -16,13 +16,13 @@
   z-index: 1;
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .userLink {
     order: 2;
   }
 }
 
-@media all and (min-width: 1540px) {
+@media (min-width: 1540px) {
   .userLink:hover a {
     text-decoration: underline;
   }

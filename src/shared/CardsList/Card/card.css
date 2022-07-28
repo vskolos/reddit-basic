@@ -10,7 +10,7 @@
   color: var(--orange);
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .card {
     padding: 20px 40px;
     background-color: transparent;
@@ -20,7 +20,7 @@
   }
 }
 
-@media all and (min-width: 1540px) {
+@media (min-width: 1540px) {
   .card {
     padding-left: 72px;
     padding-right: 48px;

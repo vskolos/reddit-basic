@@ -16,20 +16,20 @@
 }
 
 body {
-  min-width: 320px;
   padding: 0;
   margin: 0;
-  background-color: var(--grayF4);
+  min-width: 320px;
+  font-family: 'Roboto', serif;
   font-size: 14px;
   line-height: 16px;
-  font-family: 'Roboto', serif;
+  color: var(--black);
+  background-color: var(--grayF4);
 }
 
-* {
-  color: var(--black);
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 ul {
@@ -39,6 +39,7 @@ ul {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 

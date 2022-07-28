@@ -12,7 +12,7 @@ svg.down {
   transform: rotate(180deg);
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .karmaCounter {
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@ svg.down {
   }
 }
 
-@media all and (min-width: 1540px) {
+@media (min-width: 1540px) {
   .karmaCounter > button.up:hover > svg > path {
     fill: var(--green);
   }

@@ -15,7 +15,7 @@
   z-index: 10;
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .list {
     right: 50%;
     top: calc(100% + 19px);

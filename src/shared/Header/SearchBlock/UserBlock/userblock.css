@@ -32,7 +32,7 @@
   display: none;
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .username {
     display: flex;
   }

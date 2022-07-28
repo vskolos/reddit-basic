@@ -26,7 +26,7 @@
   display: none;
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .hideOnMobile {
     display: flex;
   }
@@ -39,7 +39,7 @@
   width: 100%;
 }
 
-@media all and (min-width: 1540px) {
+@media (min-width: 1540px) {
   .menuItem {
     padding: 5px 20px;
   }
