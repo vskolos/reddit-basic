@@ -1,5 +1,5 @@
 import React from 'react'
-import { IPostsContext } from '../../context/postsContext'
+import { IPost } from '../../../hooks/usePostsData'
 import styles from './card.css'
 import { Controls } from './Controls'
 import { Menu } from './Menu'
@@ -7,7 +7,7 @@ import { Preview } from './Preview'
 import { TextContent } from './TextContent'
 
 interface ICardProps {
-  post: IPostsContext
+  post: IPost
 }
 
 export function Card({ post }: ICardProps) {

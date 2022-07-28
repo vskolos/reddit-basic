@@ -1,20 +1,8 @@
 import React from 'react'
-import { usePostsData } from '../../hooks/usePostsData'
-
-export interface IPostsContext {
-  data: {
-    id: string
-    author: string
-    created: number
-    num_comments: number
-    thumbnail: string
-    title: string
-    score: number
-  }
-}
+import { IPost, usePostsData } from '../../hooks/usePostsData'
 
 export interface IPostsContextData {
-  children?: Array<IPostsContext>
+  children?: Array<IPost>
 }
 
 export const postsContext = React.createContext<IPostsContextData>({})

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useContext, useEffect, useState } from 'react'
 import { tokenContext } from '../shared/context/tokenContext'
 
-interface IPost {
+export interface IPost {
   data: {
     id: string
     author: string
