@@ -1,15 +1,15 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
-import '../node_modules/normalize.css/normalize.css'
-import './main.global.css'
-import { CardsList } from './shared/CardsList'
-import { Layout } from './shared/Layout'
-import { Header } from './shared/Header'
-import { Main } from './shared/Main'
+import CardsList from './components/CardsList/CardsList'
+import Layout from './components/Layout/Layout'
+import Header from './components/Header/Header'
+import Main from './components/Main/Main'
+import { GlobalStyle } from './App.styled'
 
 function AppComponent() {
   return (
     <Layout>
+      <GlobalStyle />
       <Header />
       <Main>
         <CardsList />

@@ -14,5 +14,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["./src/**/*", "./oldsrc/**/*", "./types"]
+  "include": ["./src/**/*", "./types"]
 }
