@@ -12,6 +12,7 @@ export const Card = styled.div`
 
   @media (min-width: 1024px) {
     padding: 20px 92px;
+    min-height: 148px;
     grid-template-columns: 190px 1fr auto 70px;
     align-items: center;
     gap: 38px;
@@ -80,10 +81,10 @@ export const CardTitle = styled(Title)`
 `
 
 export const CardImage = styled(Image)`
-  height: 178px;
+  max-height: 178px;
 
   @media (min-width: 1024px) {
-    height: 107px;
+    max-height: 107px;
   }
 `
 

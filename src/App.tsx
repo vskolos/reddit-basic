@@ -7,9 +7,9 @@ import Main from './components/Main/Main'
 import { GlobalStyle } from './App.styled'
 import { tokenContext } from './context/tokenContext'
 import { commentContext } from './context/commentContext'
-import { useToken } from './hooks/useToken'
-import { UserContextProvider } from './context/userContext'
-import { PostsContextProvider } from './context/postsContext'
+import useToken from './hooks/useToken'
+import UserContextProvider from './context/userContext'
+import PostsContextProvider from './context/postsContext'
 
 function AppComponent() {
   const [commentValue, setCommentValue] = useState('')

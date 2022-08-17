@@ -1,27 +1,13 @@
 import axios from 'axios'
 import { useContext, useEffect, useState } from 'react'
+import { IPost } from '../components/Post/Post'
 import { tokenContext } from '../context/tokenContext'
 
-export interface IPost {
-  data: {
-    id: string
-    author: string
-    created: number
-    num_comments: number
-    thumbnail: string
-    title: string
-    score: number
-    sr_detail: {
-      icon_img: string
-    }
-  }
+export interface IPostsData {
+  children?: IPost[]
 }
 
-interface IPostsData {
-  children?: Array<IPost>
-}
-
-export function usePostsData() {
+export default function usePostsData() {
   const [data, setData] = useState<IPostsData>({})
   const token = useContext(tokenContext)
 

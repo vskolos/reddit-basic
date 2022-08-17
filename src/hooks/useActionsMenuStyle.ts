@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import useWindowSize from './useWindowSize'
 
-export function useActionsMenuStyle(button: React.RefObject<HTMLDivElement>) {
+export default function useActionsMenuStyle(
+  button: React.RefObject<HTMLDivElement>
+) {
   const [windowSize] = useWindowSize()
   const [actionsMenuStyle, setActionsMenuStyle] = useState({})
 

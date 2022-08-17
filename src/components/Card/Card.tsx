@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react'
-import { IPost } from '../../hooks/usePostsData'
 import createdAtLabel from '../../utils/createdAtLabel'
 import votesCounterLabel from '../../utils/votesCounterLabel'
 import ActionsMenu from '../ActionsMenu/ActionsMenu'
 import Button from '../Button/Button'
 import Icon, { EIcon } from '../Icon/Icon'
+import Post, { IPost } from '../Post/Post'
 import { TitleType } from '../Title/Title'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import VotesCounter from '../VotesCounter/VotesCounter'
@@ -16,11 +16,12 @@ interface ICardProps {
 
 export default function Card({ post }: ICardProps) {
   const data = post.data
+  const [isPostModalOpen, setIsPostModalOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   return (
-    <S.Card>
+    <S.Card onClick={() => setIsPostModalOpen(true)}>
       <S.Info>
         <UserLink
           type={EUserLinkType.Post}
@@ -56,6 +57,9 @@ export default function Card({ post }: ICardProps) {
           onClose={() => setIsMenuOpen(false)}
         />
       </S.Dropdown>
+      {isPostModalOpen && (
+        <Post post={post} onClose={() => setIsPostModalOpen(false)} />
+      )}
     </S.Card>
   )
 }

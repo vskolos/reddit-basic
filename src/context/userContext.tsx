@@ -1,5 +1,5 @@
 import React from 'react'
-import { useUserData } from '../hooks/useUserData'
+import useUserData from '../hooks/useUserData'
 
 export interface IUserContextData {
   name?: string
@@ -12,7 +12,9 @@ interface IUserContextProviderProps {
   children: React.ReactNode
 }
 
-export function UserContextProvider({ children }: IUserContextProviderProps) {
+export default function UserContextProvider({
+  children,
+}: IUserContextProviderProps) {
   const [data] = useUserData()
   return <userContext.Provider value={data}>{children}</userContext.Provider>
 }

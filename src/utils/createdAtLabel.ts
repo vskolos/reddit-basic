@@ -1,4 +1,4 @@
-export default function createdAtLabel(from: number) {
+export default function createdAtLabel(from: number): string {
   const now = Math.floor(Date.now() / 1000)
   const seconds = now - from
   const minutes = Math.floor((now - from) / 60)
