@@ -1,19 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { postsContext } from '../../context/postsContext'
 import Card from '../Card/Card'
 import * as S from './CardsList.styled'
 
 export default function CardsList() {
-  return (
-    <S.List>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-    </S.List>
-  )
+  const posts = useContext(postsContext)
+  const children: React.ReactNode[] = []
+
+  if (posts.children) {
+    posts.children.forEach((post) => {
+      children.push(
+        <li key={post.data.id}>
+          <Card post={post} />
+        </li>
+      )
+    })
+  }
+
+  return <S.List>{children}</S.List>
 }

@@ -1,13 +1,21 @@
 import React from 'react'
+import isUrl from '../../utils/isURL'
 import * as S from './Image.styled'
 
-export default function Image() {
+interface IImageProps {
+  className?: string
+  src?: string
+  alt?: string
+}
+
+export default function Image({
+  className,
+  src = '',
+  alt = 'image',
+}: IImageProps) {
   return (
-    <S.Image>
-      <img
-        src="https://images.unsplash.com/photo-1658951279624-196e3a907f45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
-        alt="image"
-      />
+    <S.Image className={className}>
+      {src && isUrl(src) && <img src={src} alt={alt} />}
     </S.Image>
   )
 }

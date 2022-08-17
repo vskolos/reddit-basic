@@ -8,6 +8,7 @@ export const Card = styled.div`
   display: grid;
   background-color: var(--white);
   border-radius: 7px;
+  cursor: pointer;
 
   @media (min-width: 1024px) {
     padding: 20px 92px;
@@ -27,6 +28,7 @@ export const Info = styled.div`
   padding: 22px 20px 13px;
   display: grid;
   grid-template-columns: auto 1fr;
+  justify-items: start;
   align-items: center;
   gap: 7px 6px;
 

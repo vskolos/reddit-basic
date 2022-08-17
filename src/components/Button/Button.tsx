@@ -1,5 +1,5 @@
 import React from 'react'
-import { noop } from '../../utils/noop'
+import noop from '../../utils/noop'
 import * as S from './Button.styled'
 
 interface IButtonProps {

@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { useActionsMenuStyle } from '../../hooks/useActionsMenuStyle'
 import Icon, { EIcon } from '../Icon/Icon'
 import * as S from './ActionsMenu.styled'
@@ -14,11 +15,14 @@ export default function ActionsMenu({
   isOpen = false,
   onClose,
 }: IActionsMenuProps) {
-  // const [actionsMenuStyle] = useActionsMenuStyle(container)
-  return (
+  const [actionsMenuStyle] = useActionsMenuStyle(container)
+  const modalRoot = document.querySelector('#modal_root')
+  if (!modalRoot) return null
+
+  return ReactDOM.createPortal(
     <>
       {isOpen && (
-        <S.List>
+        <S.List style={actionsMenuStyle}>
           <S.Item>
             <S.ItemButton
               icon={<Icon type={EIcon.Comments} />}
@@ -48,6 +52,7 @@ export default function ActionsMenu({
           </S.Item>
         </S.List>
       )}
-    </>
+    </>,
+    modalRoot
   )
 }

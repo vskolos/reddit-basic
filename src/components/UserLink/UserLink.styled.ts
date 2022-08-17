@@ -6,11 +6,15 @@ export const Link = styled.a`
   align-items: center;
   color: inherit;
   text-decoration: none;
-  gap: 10px;
+  gap: 7px;
 `
 
 export const Avatar = styled.div<{ type: EUserLinkType }>`
-  & > svg {
+  border-radius: 50%;
+  overflow: hidden;
+
+  & svg,
+  & img {
     display: block;
     width: ${({ type }) => (type === EUserLinkType.Header ? 30 : 20)}px;
     height: ${({ type }) => (type === EUserLinkType.Header ? 30 : 20)}px;
