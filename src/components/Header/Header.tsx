@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { userContext } from '../../context/userContext'
 import Icon, { EIcon } from '../Icon/Icon'
 import Select from '../Select/Select'
-import { TitleType } from '../Title/Title'
+import { ETitleType } from '../Title/Title'
 import { EUserLinkType } from '../UserLink/UserLink'
 import * as S from './Header.styled'
 
@@ -24,7 +24,7 @@ export default function Header() {
           reversed={true}
         />
       </S.Info>
-      <S.HeaderTitle type={TitleType.Page} text="Лента новостей" />
+      <S.HeaderTitle type={ETitleType.Page} text="Лента новостей" />
       <Select />
     </S.Header>
   )

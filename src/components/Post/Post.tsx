@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
+import { userContext } from '../../context/userContext'
 import usePostModal from '../../hooks/usePostModal'
+import counterLabel from '../../utils/counterLabel'
+import createdAtLabel from '../../utils/createdAtLabel'
+import Comments from '../Comments/Comments'
+import Icon, { EIcon } from '../Icon/Icon'
+import Image from '../Image/Image'
+import { ETitleType } from '../Title/Title'
+import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import * as S from './Post.styled'
 
 export interface IPost {
@@ -9,7 +17,7 @@ export interface IPost {
     author: string
     created: number
     num_comments: number
-    thumbnail: string
+    url: string
     title: string
     selftext: string
     score: number
@@ -27,6 +35,7 @@ interface IPostProps {
 
 export default function Post({ post, onClose }: IPostProps) {
   const [modal] = usePostModal(onClose)
+  const { name } = useContext(userContext)
   const data = post.data
 
   const modalRoot = document.querySelector('#modal_root')
@@ -34,20 +43,28 @@ export default function Post({ post, onClose }: IPostProps) {
 
   return ReactDOM.createPortal(
     <S.Backdrop>
-      <S.Post ref={modal}>{data.selftext}</S.Post>
-      {/* <VotesCounter votes={votesCounterLabel(data.score)} />
-      <S.Info>
-        <UserLink
-          type={EUserLinkType.Post}
-          name={data.author}
-          iconImg={data.sr_detail.icon_img}
-        />
-        <S.CreatedAt>
-          <S.PublishedLabel>опубликовано </S.PublishedLabel>
-          {createdAtLabel(data.created)}
-        </S.CreatedAt>
-        <S.CardTitle type={TitleType.Post} text={data.title} />
-      </S.Info> */}
+      <S.Post ref={modal}>
+        <S.Info>
+          <S.PostTitle type={ETitleType.Post} text={data.title} />
+          <UserLink
+            type={EUserLinkType.Post}
+            name={data.author}
+            iconImg={data.sr_detail.icon_img}
+          />
+          <S.CreatedAt>
+            <S.PublishedLabel>опубликовано </S.PublishedLabel>
+            {createdAtLabel(data.created)}
+          </S.CreatedAt>
+        </S.Info>
+        <S.PostVotesCounter votes={counterLabel(data.score)} />
+        <S.Content>
+          <Image src={data.url} />
+        </S.Content>
+        <S.PostCommentForm username={name} />
+        <S.PostComments postId={data.id} />
+        {/* TODO: Figure out why modal doesn't close on click */}
+        <S.CloseButton icon={<Icon type={EIcon.Close} />} onClick={onClose} />
+      </S.Post>
     </S.Backdrop>,
     modalRoot
   )

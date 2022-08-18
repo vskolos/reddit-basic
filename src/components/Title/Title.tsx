@@ -1,14 +1,14 @@
 import React from 'react'
 import * as S from './Title.styled'
 
-export enum TitleType {
+export enum ETitleType {
   Page = 'h2',
   Post = 'h3',
 }
 
 interface ITitleProps {
   className?: string
-  type: TitleType
+  type: ETitleType
   text: string
 }
 

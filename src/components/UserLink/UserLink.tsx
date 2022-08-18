@@ -1,5 +1,5 @@
 import React from 'react'
-import isUrl from '../../utils/isURL'
+import isImageUrl from '../../utils/isImageUrl'
 import Icon, { EIcon } from '../Icon/Icon'
 import Image from '../Image/Image'
 import * as S from './UserLink.styled'
@@ -27,7 +27,7 @@ export default function UserLink({
   return (
     <S.Link href={href} className={className}>
       <S.Avatar type={type}>
-        {typeof iconImg === 'string' && isUrl(iconImg) ? (
+        {typeof iconImg === 'string' && isImageUrl(iconImg) ? (
           <Image src={iconImg} alt={`Аватар пользователя ${name}`} />
         ) : (
           <Icon type={EIcon.Anonymous} />

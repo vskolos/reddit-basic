@@ -1,5 +1,5 @@
 import React from 'react'
-import isUrl from '../../utils/isURL'
+import isImageUrl from '../../utils/isImageUrl'
 import * as S from './Image.styled'
 
 interface IImageProps {
@@ -15,7 +15,7 @@ export default function Image({
 }: IImageProps) {
   return (
     <S.Image className={className}>
-      {src && isUrl(src) && <img src={src} alt={alt} />}
+      {src && isImageUrl(src) && <img src={src} alt={alt} />}
     </S.Image>
   )
 }

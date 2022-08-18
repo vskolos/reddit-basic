@@ -5,7 +5,7 @@ import ActionsMenu from '../ActionsMenu/ActionsMenu'
 import Button from '../Button/Button'
 import Icon, { EIcon } from '../Icon/Icon'
 import Post, { IPost } from '../Post/Post'
-import { TitleType } from '../Title/Title'
+import { ETitleType } from '../Title/Title'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import VotesCounter from '../VotesCounter/VotesCounter'
 import * as S from './Card.styled'
@@ -32,9 +32,9 @@ export default function Card({ post }: ICardProps) {
           <S.PublishedLabel>опубликовано </S.PublishedLabel>
           {createdAtLabel(data.created)}
         </S.CreatedAt>
-        <S.CardTitle type={TitleType.Post} text={data.title} />
+        <S.CardTitle type={ETitleType.Post} text={data.title} />
       </S.Info>
-      <S.CardImage src={data.thumbnail} />
+      <S.CardImage src={data.url} />
       <S.Controls>
         <VotesCounter votes={counterLabel(data.score)} />
         <S.CommentsButton
