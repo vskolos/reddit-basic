@@ -19,7 +19,6 @@ export default function usePostsData() {
         },
       })
       .then((resp) => {
-        console.log(resp.data.data)
         setData(resp.data.data)
       })
       .catch(console.log)
