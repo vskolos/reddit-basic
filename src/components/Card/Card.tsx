@@ -3,11 +3,10 @@ import createdAtLabel from '../../utils/createdAtLabel'
 import counterLabel from '../../utils/counterLabel'
 import ActionsMenu from '../ActionsMenu/ActionsMenu'
 import Button from '../Button/Button'
-import Icon, { EIcon } from '../Icon/Icon'
+import { EIcon } from '../Icon/Icon'
 import Post, { IPost } from '../Post/Post'
 import { ETitleType } from '../Title/Title'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
-import VotesCounter from '../VotesCounter/VotesCounter'
 import * as S from './Card.styled'
 
 interface ICardProps {

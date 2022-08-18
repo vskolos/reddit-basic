@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import useActionsMenuStyle from '../../hooks/useActionsMenuStyle'
-import Icon, { EIcon } from '../Icon/Icon'
+import { EIcon } from '../Icon/Icon'
 import * as S from './ActionsMenu.styled'
 
 interface IActionsMenuProps {

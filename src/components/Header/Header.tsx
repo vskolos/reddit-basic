@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { userContext } from '../../context/userContext'
-import Icon, { EIcon } from '../Icon/Icon'
+import { EIcon } from '../Icon/Icon'
 import Select from '../Select/Select'
 import { ETitleType } from '../Title/Title'
 import { EUserLinkType } from '../UserLink/UserLink'

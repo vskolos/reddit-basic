@@ -1,6 +1,6 @@
 import React from 'react'
 import createdAtLabel from '../../utils/createdAtLabel'
-import Icon, { EIcon } from '../Icon/Icon'
+import { EIcon } from '../Icon/Icon'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import * as S from './Comment.styled'
 

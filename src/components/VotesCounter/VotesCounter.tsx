@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../Button/Button'
-import Icon, { EIcon } from '../Icon/Icon'
+import { EIcon } from '../Icon/Icon'
 import * as S from './VotesCounter.styled'
 
 interface IVotesCounterProps {
