@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function SaveIcon() {
+export default function SaveIcon() {
   return (
     <svg
       width="14"

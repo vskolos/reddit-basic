@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function ThreeDotsIcon() {
+export default function ThreeDotsIcon() {
   return (
     <svg
       width="20"

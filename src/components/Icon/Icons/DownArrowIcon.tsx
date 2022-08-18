@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function DownArrowIcon() {
+export default function DownArrowIcon() {
   return (
     <svg
       width="10"

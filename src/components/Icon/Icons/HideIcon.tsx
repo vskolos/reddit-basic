@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function HideIcon() {
+export default function HideIcon() {
   return (
     <svg
       width="14"

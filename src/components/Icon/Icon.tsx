@@ -1,22 +1,24 @@
 import React from 'react'
-import { AlertIcon } from './Icons/AlertIcon'
-import { AnonymousIcon } from './Icons/AnonymousIcon'
-import { CommentsIcon } from './Icons/CommentsIcon'
-import { DownArrowIcon } from './Icons/DownArrowIcon'
-import { DownvoteIcon } from './Icons/DownvoteIcon'
-import { EnvelopeIcon } from './Icons/EnvelopeIcon'
-import { EyeIcon } from './Icons/EyeIcon'
-import { HideIcon } from './Icons/HideIcon'
-import { PencilIcon } from './Icons/PencilIcon'
-import { SaveIcon } from './Icons/SaveIcon'
-import { SearchIcon } from './Icons/SearchIcon'
-import { ShareIcon } from './Icons/ShareIcon'
-import { ThreeDotsIcon } from './Icons/ThreeDotsIcon'
-import { UpvoteIcon } from './Icons/UpvoteIcon'
+import AlertIcon from './Icons/AlertIcon'
+import AnonymousIcon from './Icons/AnonymousIcon'
+import CloseIcon from './Icons/CloseIcon'
+import CommentsIcon from './Icons/CommentsIcon'
+import DownArrowIcon from './Icons/DownArrowIcon'
+import DownvoteIcon from './Icons/DownvoteIcon'
+import EnvelopeIcon from './Icons/EnvelopeIcon'
+import EyeIcon from './Icons/EyeIcon'
+import HideIcon from './Icons/HideIcon'
+import PencilIcon from './Icons/PencilIcon'
+import SaveIcon from './Icons/SaveIcon'
+import SearchIcon from './Icons/SearchIcon'
+import ShareIcon from './Icons/ShareIcon'
+import ThreeDotsIcon from './Icons/ThreeDotsIcon'
+import UpvoteIcon from './Icons/UpvoteIcon'
 
 export enum EIcon {
   Alert,
   Anonymous,
+  Close,
   Comments,
   DownArrow,
   Downvote,
@@ -41,6 +43,8 @@ export default function Icon({ type }: IIconProps) {
       return <AlertIcon />
     case EIcon.Anonymous:
       return <AnonymousIcon />
+    case EIcon.Close:
+      return <CloseIcon />
     case EIcon.Comments:
       return <CommentsIcon />
     case EIcon.DownArrow:

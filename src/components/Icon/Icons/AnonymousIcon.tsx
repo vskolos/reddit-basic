@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function AnonymousIcon() {
+export default function AnonymousIcon() {
   return (
     <svg
       width="50"

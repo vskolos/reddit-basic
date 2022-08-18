@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function AlertIcon() {
+export default function AlertIcon() {
   return (
     <svg
       width="16"

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function EnvelopeIcon() {
+export default function EnvelopeIcon() {
   return (
     <svg
       width="13"

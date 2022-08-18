@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function UpvoteIcon() {
+export default function UpvoteIcon() {
   return (
     <svg
       width="19"

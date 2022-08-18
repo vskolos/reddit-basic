@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function CommentsIcon() {
+export default function CommentsIcon() {
   return (
     <svg
       width="15"

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function EyeIcon() {
+export default function EyeIcon() {
   return (
     <svg
       width="12"
