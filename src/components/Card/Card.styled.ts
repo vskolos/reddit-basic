@@ -2,13 +2,13 @@ import styled from 'styled-components'
 import Button from '../Button/Button'
 import Image from '../Image/Image'
 import Title from '../Title/Title'
+import VotesCounter from '../VotesCounter/VotesCounter'
 
 export const Card = styled.div`
   position: relative;
   display: grid;
   background-color: var(--white);
   border-radius: 7px;
-  cursor: pointer;
 
   @media (min-width: 1024px) {
     padding: 20px 92px;
@@ -78,6 +78,13 @@ export const CardTitle = styled(Title)`
   @media (min-width: 1540px) {
     max-width: 672px;
   }
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    cursor: pointer;
+  }
 `
 
 export const CardImage = styled(Image)`
@@ -111,6 +118,11 @@ export const CommentsButton = styled(Button)`
   @media (min-width: 1024px) {
     display: none;
   }
+`
+
+export const CardVotesCounter = styled(VotesCounter)`
+  position: relative;
+  z-index: 50;
 `
 
 export const Actions = styled.div`

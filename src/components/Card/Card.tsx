@@ -21,7 +21,7 @@ export default function Card({ post }: ICardProps) {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   return (
-    <S.Card onClick={() => setIsPostModalOpen(true)}>
+    <S.Card>
       <S.Info>
         <UserLink
           type={EUserLinkType.Post}
@@ -32,11 +32,15 @@ export default function Card({ post }: ICardProps) {
           <S.PublishedLabel>опубликовано </S.PublishedLabel>
           {createdAtLabel(data.created)}
         </S.CreatedAt>
-        <S.CardTitle type={ETitleType.Post} text={data.title} />
+        <S.CardTitle
+          type={ETitleType.Post}
+          text={data.title}
+          onClick={() => setIsPostModalOpen(true)}
+        />
       </S.Info>
       <S.CardImage src={data.url} />
       <S.Controls>
-        <VotesCounter votes={counterLabel(data.score)} />
+        <S.CardVotesCounter votes={counterLabel(data.score)} />
         <S.CommentsButton
           icon={EIcon.Comments}
           text={counterLabel(data.num_comments)}
