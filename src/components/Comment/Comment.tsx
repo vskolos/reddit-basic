@@ -31,6 +31,7 @@ export default function Comment({
       textarea.focus()
     }
   }, [isReplyFormOpen])
+
   return (
     <S.CommentBlock className={className}>
       <S.Comment>
