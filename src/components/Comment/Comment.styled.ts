@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Button from '../Button/Button'
+import CommentForm from '../CommentForm/CommentForm'
 
 export const CommentBlock = styled.div`
   display: grid;
@@ -71,5 +72,11 @@ export const ActionButton = styled(Button)`
     @media (min-width: 576px) {
       display: initial;
     }
+  }
+`
+
+export const ReplyForm = styled(CommentForm)`
+  @media (min-width: 1024px) {
+    grid-column: span 2;
   }
 `

@@ -4,16 +4,25 @@ import * as S from './CommentForm.styled'
 interface ICommentFormProps {
   className?: string
   username?: string
+  formRef?: React.RefObject<HTMLFormElement>
+  value?: string
 }
 
 export default function CommentForm({
   className,
   username,
+  value = '',
+  formRef,
 }: ICommentFormProps) {
-  const [commentValue, setCommentValue] = useState('')
+  const [commentValue, setCommentValue] = useState(value)
   return (
-    <S.Form className={className} onSubmit={(e) => e.preventDefault()}>
+    <S.Form
+      className={className}
+      onSubmit={(e) => e.preventDefault()}
+      ref={formRef}
+    >
       <S.TextArea
+        name="comment"
         placeholder={`${
           username ? username : 'Аноним'
         }, оставьте ваш комментарий`}
