@@ -18,11 +18,7 @@ export default function Header() {
           iconImg={iconImg}
         />
         <S.HeaderSearch />
-        <S.MessagesButton
-          icon={<Icon type={EIcon.Envelope} />}
-          text="4"
-          reversed={true}
-        />
+        <S.MessagesButton icon={EIcon.Envelope} text="4" reversed={true} />
       </S.Info>
       <S.HeaderTitle type={ETitleType.Page} text="Лента новостей" />
       <Select />

@@ -11,9 +11,9 @@ interface IVotesCounterProps {
 export default function VotesCounter({ className, votes }: IVotesCounterProps) {
   return (
     <S.Votes className={className}>
-      <Button icon={<Icon type={EIcon.Upvote} />} />
+      <Button icon={EIcon.Upvote} />
       <S.Votes>{votes}</S.Votes>
-      <Button icon={<Icon type={EIcon.Downvote} />} />
+      <Button icon={EIcon.Downvote} />
     </S.Votes>
   )
 }

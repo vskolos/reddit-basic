@@ -26,18 +26,9 @@ export default function Comment({
         <S.CreatedAt>{createdAtLabel(created)}</S.CreatedAt>
         <S.Text>{text}</S.Text>
         <S.Actions>
-          <S.ActionButton
-            icon={<Icon type={EIcon.Comments} />}
-            text="Ответить"
-          />
-          <S.ActionButton
-            icon={<Icon type={EIcon.Share} />}
-            text="Поделиться"
-          />
-          <S.ActionButton
-            icon={<Icon type={EIcon.Alert} />}
-            text="Пожаловаться"
-          />
+          <S.ActionButton icon={EIcon.Comments} text="Ответить" />
+          <S.ActionButton icon={EIcon.Share} text="Поделиться" />
+          <S.ActionButton icon={EIcon.Alert} text="Пожаловаться" />
         </S.Actions>
       </S.Comment>
       {children}

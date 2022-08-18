@@ -38,17 +38,17 @@ export default function Card({ post }: ICardProps) {
       <S.Controls>
         <VotesCounter votes={counterLabel(data.score)} />
         <S.CommentsButton
-          icon={<Icon type={EIcon.Comments} />}
+          icon={EIcon.Comments}
           text={counterLabel(data.num_comments)}
         />
         <S.Actions>
-          <Button icon={<Icon type={EIcon.Share} />} />
-          <Button icon={<Icon type={EIcon.Save} />} />
+          <Button icon={EIcon.Share} />
+          <Button icon={EIcon.Save} />
         </S.Actions>
       </S.Controls>
       <S.Dropdown ref={dropdownRef}>
         <S.MenuButton
-          icon={<Icon type={EIcon.ThreeDots} />}
+          icon={EIcon.ThreeDots}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         />
         <ActionsMenu

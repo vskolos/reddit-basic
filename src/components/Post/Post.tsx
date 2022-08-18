@@ -63,7 +63,7 @@ export default function Post({ post, onClose }: IPostProps) {
         <S.PostCommentForm username={name} />
         <S.PostComments postId={data.id} />
         {/* TODO: Figure out why modal doesn't close on click */}
-        <S.CloseButton icon={<Icon type={EIcon.Close} />} onClick={onClose} />
+        <S.CloseButton icon={EIcon.Close} onClick={onClose} />
       </S.Post>
     </S.Backdrop>,
     modalRoot

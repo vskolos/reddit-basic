@@ -1,10 +1,11 @@
 import React from 'react'
 import noop from '../../utils/noop'
+import Icon, { EIcon } from '../Icon/Icon'
 import * as S from './Button.styled'
 
 interface IButtonProps {
   className?: string
-  icon?: React.ReactNode
+  icon?: EIcon
   text?: string
   reversed?: boolean
   onClick?: () => void
@@ -19,9 +20,17 @@ export default function Button({
 }: IButtonProps) {
   return (
     <S.Button className={className} onClick={onClick}>
-      {icon && !reversed && <S.Icon>{icon}</S.Icon>}
+      {icon !== undefined && !reversed && (
+        <S.Icon>
+          <Icon type={icon} />
+        </S.Icon>
+      )}
       {text && <S.Text>{text}</S.Text>}
-      {icon && reversed && <S.Icon>{icon}</S.Icon>}
+      {icon !== undefined && reversed && (
+        <S.Icon>
+          <Icon type={icon} />
+        </S.Icon>
+      )}
     </S.Button>
   )
 }

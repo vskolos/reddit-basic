@@ -24,28 +24,19 @@ export default function ActionsMenu({
       {isOpen && (
         <S.List style={actionsMenuStyle}>
           <S.Item>
-            <S.ItemButton
-              icon={<Icon type={EIcon.Comments} />}
-              text="Комментарии"
-            />
+            <S.ItemButton icon={EIcon.Comments} text="Комментарии" />
           </S.Item>
           <S.Item>
-            <S.ItemButton
-              icon={<Icon type={EIcon.Share} />}
-              text="Поделиться"
-            />
+            <S.ItemButton icon={EIcon.Share} text="Поделиться" />
           </S.Item>
           <S.Item>
-            <S.ItemButton icon={<Icon type={EIcon.Hide} />} text="Скрыть" />
+            <S.ItemButton icon={EIcon.Hide} text="Скрыть" />
           </S.Item>
           <S.Item>
-            <S.ItemButton icon={<Icon type={EIcon.Save} />} text="Сохранить" />
+            <S.ItemButton icon={EIcon.Save} text="Сохранить" />
           </S.Item>
           <S.Item>
-            <S.ItemButton
-              icon={<Icon type={EIcon.Alert} />}
-              text="Пожаловаться"
-            />
+            <S.ItemButton icon={EIcon.Alert} text="Пожаловаться" />
           </S.Item>
           <S.Item>
             <S.CloseButton text="Закрыть" onClick={onClose} />
