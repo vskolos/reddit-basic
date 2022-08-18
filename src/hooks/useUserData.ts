@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { useContext, useEffect, useState } from 'react'
-import { tokenContext } from '../shared/context/tokenContext'
+import { tokenContext } from '../context/tokenContext'
 
 interface IUserData {
   name?: string
   iconImg?: string
 }
 
-export function useUserData() {
+export default function useUserData() {
   const [data, setData] = useState<IUserData>({})
   const token = useContext(tokenContext)
 

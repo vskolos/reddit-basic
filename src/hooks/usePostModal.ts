@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export function usePostModal(onClose?: () => void) {
+export default function usePostModal(onClose?: () => void) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -13,10 +13,12 @@ export function usePostModal(onClose?: () => void) {
       }
     }
 
+    document.body.style.overflow = 'hidden'
     document.addEventListener('click', handleClick)
 
     return () => {
       document.removeEventListener('click', handleClick)
+      document.body.style.overflow = ''
     }
   }, [])
 

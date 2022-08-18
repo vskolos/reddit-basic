@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { hot } from 'react-hot-loader/root'
-import './main.global.css'
-import { Layout } from './shared/Layout/Layout'
-import { Header } from './shared/Header'
-import { Content } from './shared/Content'
-import { CardsList } from './shared/CardsList'
-import { useToken } from './hooks/useToken'
-import { tokenContext } from './shared/context/tokenContext'
-import { commentContext } from './shared/context/commentContext'
-import { UserContextProvider } from './shared/context/userContext'
-import { PostsContextProvider } from './shared/context/postsContext'
+import CardsList from './components/CardsList/CardsList'
+import Layout from './components/Layout/Layout'
+import Header from './components/Header/Header'
+import Main from './components/Main/Main'
+import { GlobalStyle } from './App.styled'
+import { tokenContext } from './context/tokenContext'
+import { commentContext } from './context/commentContext'
+import useToken from './hooks/useToken'
+import UserContextProvider from './context/userContext'
+import PostsContextProvider from './context/postsContext'
 
 function AppComponent() {
   const [commentValue, setCommentValue] = useState('')
@@ -26,10 +26,11 @@ function AppComponent() {
             }}
           >
             <Layout>
+              <GlobalStyle />
               <Header />
-              <Content>
+              <Main>
                 <CardsList />
-              </Content>
+              </Main>
             </Layout>
           </commentContext.Provider>
         </PostsContextProvider>
