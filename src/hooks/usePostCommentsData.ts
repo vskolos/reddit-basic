@@ -19,7 +19,6 @@ export default function usePostCommentsData(postId: string) {
         },
       })
       .then((resp) => {
-        console.log(resp.data[1].data)
         setData(resp.data[1].data)
       })
       .catch(console.log)
