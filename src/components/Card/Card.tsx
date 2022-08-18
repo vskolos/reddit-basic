@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import createdAtLabel from '../../utils/createdAtLabel'
-import votesCounterLabel from '../../utils/votesCounterLabel'
+import counterLabel from '../../utils/counterLabel'
 import ActionsMenu from '../ActionsMenu/ActionsMenu'
 import Button from '../Button/Button'
 import Icon, { EIcon } from '../Icon/Icon'
@@ -36,10 +36,10 @@ export default function Card({ post }: ICardProps) {
       </S.Info>
       <S.CardImage src={data.thumbnail} />
       <S.Controls>
-        <VotesCounter votes={votesCounterLabel(data.score)} />
+        <VotesCounter votes={counterLabel(data.score)} />
         <S.CommentsButton
           icon={<Icon type={EIcon.Comments} />}
-          text={`${data.num_comments}`}
+          text={counterLabel(data.num_comments)}
         />
         <S.Actions>
           <Button icon={<Icon type={EIcon.Share} />} />
