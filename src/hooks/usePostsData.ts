@@ -10,7 +10,6 @@ export interface IPostsData {
 }
 
 export default function usePostsData() {
-  const posts = useSelector((state: RootState) => state.posts.value)
   const token = useSelector((state: RootState) => state.token.value)
   const dispatch = useDispatch()
 
@@ -27,6 +26,4 @@ export default function usePostsData() {
       })
       .catch(console.log)
   }, [token])
-
-  return [posts]
 }

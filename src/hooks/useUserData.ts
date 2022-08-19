@@ -10,7 +10,6 @@ export interface IUserData {
 }
 
 export default function useUserData() {
-  const user = useSelector((state: RootState) => state.user.value)
   const token = useSelector((state: RootState) => state.token.value)
   const dispatch = useDispatch()
 
@@ -28,6 +27,4 @@ export default function useUserData() {
       })
       .catch(console.log)
   }, [token])
-
-  return [user]
 }

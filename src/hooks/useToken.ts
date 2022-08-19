@@ -1,10 +1,8 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../app/store'
+import { useDispatch } from 'react-redux'
 import { set as setToken } from '../app/tokenSlice'
 
 export default function useToken() {
-  const token = useSelector((state: RootState) => state.token.value)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -15,6 +13,4 @@ export default function useToken() {
       localStorage.token = window.__token__
     }
   }, [])
-
-  return [token]
 }
