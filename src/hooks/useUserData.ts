@@ -1,17 +1,21 @@
 import axios from 'axios'
-import { useContext, useEffect, useState } from 'react'
-import { tokenContext } from '../context/tokenContext'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../app/store'
+import { set as setUser } from '../app/userSlice'
 
-interface IUserData {
+export interface IUserData {
   name?: string
   iconImg?: string
 }
 
 export default function useUserData() {
-  const [data, setData] = useState<IUserData>({})
-  const token = useContext(tokenContext)
+  const user = useSelector((state: RootState) => state.user.value)
+  const token = useSelector((state: RootState) => state.token.value)
+  const dispatch = useDispatch()
 
   useEffect(() => {
+    if (!token) return
     axios
       .get('https://oauth.reddit.com/api/v1/me', {
         headers: {
@@ -20,10 +24,10 @@ export default function useUserData() {
       })
       .then((resp) => {
         const userData = resp.data
-        setData({ name: userData.name, iconImg: userData.icon_img })
+        dispatch(setUser({ name: userData.name, iconImg: userData.icon_img }))
       })
       .catch(console.log)
   }, [token])
 
-  return [data]
+  return [user]
 }

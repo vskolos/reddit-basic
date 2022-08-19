@@ -1,42 +1,34 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import CardsList from './components/CardsList/CardsList'
 import Layout from './components/Layout/Layout'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import { GlobalStyle } from './App.styled'
-import { tokenContext } from './context/tokenContext'
-import { commentContext } from './context/commentContext'
+import useUserData from './hooks/useUserData'
+import usePostsData from './hooks/usePostsData'
+import { Provider } from 'react-redux'
+import { store } from './app/store'
 import useToken from './hooks/useToken'
-import UserContextProvider from './context/userContext'
-import PostsContextProvider from './context/postsContext'
 
 function AppComponent() {
-  const [commentValue, setCommentValue] = useState('')
-  const [token] = useToken()
+  useToken()
+  useUserData()
+  usePostsData()
 
   return (
-    <tokenContext.Provider value={token}>
-      <UserContextProvider>
-        <PostsContextProvider>
-          <commentContext.Provider
-            value={{
-              value: commentValue,
-              onChange: setCommentValue,
-            }}
-          >
-            <Layout>
-              <GlobalStyle />
-              <Header />
-              <Main>
-                <CardsList />
-              </Main>
-            </Layout>
-          </commentContext.Provider>
-        </PostsContextProvider>
-      </UserContextProvider>
-    </tokenContext.Provider>
+    <Layout>
+      <GlobalStyle />
+      <Header />
+      <Main>
+        <CardsList />
+      </Main>
+    </Layout>
   )
 }
 
-export const App = hot(() => <AppComponent />)
+export const App = hot(() => (
+  <Provider store={store}>
+    <AppComponent />
+  </Provider>
+))

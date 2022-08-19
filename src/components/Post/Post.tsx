@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
-import { userContext } from '../../context/userContext'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../app/store'
 import usePostModal from '../../hooks/usePostModal'
 import counterLabel from '../../utils/counterLabel'
 import createdAtLabel from '../../utils/createdAtLabel'
@@ -34,7 +35,7 @@ interface IPostProps {
 
 export default function Post({ post, onClose }: IPostProps) {
   const [modal] = usePostModal(onClose)
-  const { name } = useContext(userContext)
+  const name = useSelector((state: RootState) => state.user.value?.name)
   const data = post.data
 
   const modalRoot = document.querySelector('#modal_root')

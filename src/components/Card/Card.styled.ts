@@ -68,6 +68,7 @@ export const CardTitle = styled(Title)`
   -webkit-line-clamp: 2;
   text-overflow: ellipsis;
   overflow: hidden;
+  cursor: pointer;
 
   @media (min-width: 1024px) {
     grid-row: 1;
@@ -83,7 +84,6 @@ export const CardTitle = styled(Title)`
     position: absolute;
     inset: 0;
     content: '';
-    cursor: pointer;
   }
 `
 
