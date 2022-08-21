@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { set as setToken } from '../app/tokenSlice'
-import { getCookie, setCookie, deleteCookie } from '../utils/cookies'
+import { getCookie, setCookie } from '../utils/cookies'
 
 export default function useToken() {
   const dispatch = useDispatch()
