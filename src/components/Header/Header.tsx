@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../app/store'
+import useUserData from '../../hooks/useUserData'
 import { EIcon } from '../Icon/Icon'
 import Select from '../Select/Select'
 import { ETitleType } from '../Title/Title'
@@ -9,7 +10,9 @@ import * as S from './Header.styled'
 
 export default function Header() {
   const token = useSelector((state: RootState) => state.token.value)
-  const user = useSelector((state: RootState) => state.user.value)
+  const user = useSelector((state: RootState) => state.user.data)
+
+  useUserData()
 
   return (
     <S.Header>

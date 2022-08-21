@@ -10,7 +10,6 @@ export default function useToken() {
     const cookieToken = getCookie('token')
     if (cookieToken && cookieToken !== 'undefined') {
       dispatch(setToken(cookieToken))
-      return
     }
 
     const windowToken = window.__token__

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../app/store'
@@ -35,7 +35,7 @@ interface IPostProps {
 
 export default function Post({ post, onClose }: IPostProps) {
   const [modal] = usePostModal(onClose)
-  const name = useSelector((state: RootState) => state.user.value?.name)
+  const name = useSelector((state: RootState) => state.user.data.name)
   const data = post.data
 
   const modalRoot = document.querySelector('#modal_root')
