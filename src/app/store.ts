@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import tokenReducer from './tokenSlice'
 import userReducer from './userSlice'
 import postsReducer from './postsSlice'
+import commentsReducer from './commentsSlice'
 import thunk from 'redux-thunk'
 
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
     token: tokenReducer,
     user: userReducer,
     posts: postsReducer,
+    comments: commentsReducer,
   },
   middleware: [thunk],
 })

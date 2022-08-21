@@ -1,7 +1,8 @@
 import React from 'react'
-import usePostCommentsData, {
-  IPostCommentsData,
-} from '../../hooks/usePostCommentsData'
+import { useSelector } from 'react-redux'
+import { selectAllComments } from '../../app/commentsSlice'
+import { RootState } from '../../app/store'
+import usePostCommentsData from '../../hooks/usePostCommentsData'
 import Comment from '../Comment/Comment'
 import * as S from './Comments.styled'
 
@@ -15,7 +16,7 @@ export interface IComment {
     replies:
       | ''
       | {
-          data: IPostCommentsData
+          data: { children: IComment[] }
         }
   }
 }
@@ -26,10 +27,10 @@ interface ICommentsProps {
 }
 
 export default function Comments({ className, postId }: ICommentsProps) {
-  const [comments] = usePostCommentsData(postId)
+  const comments = useSelector(selectAllComments)
 
-  function createCommentsNodes(commentsData: IPostCommentsData) {
-    const comments = commentsData.children
+  function createCommentsNodes(commentsData: IComment[]) {
+    const comments = commentsData
     if (!comments) return null
 
     const children: React.ReactNode[] = []
@@ -44,7 +45,7 @@ export default function Comments({ className, postId }: ICommentsProps) {
           created={comment.data.created}
           children={
             comment.data.replies !== '' &&
-            createCommentsNodes(comment.data.replies.data)
+            createCommentsNodes(comment.data.replies.data.children)
           }
         />
       )
