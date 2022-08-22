@@ -76,7 +76,5 @@ export const ActionButton = styled(Button)`
 `
 
 export const ReplyForm = styled(CommentForm)`
-  @media (min-width: 1024px) {
-    grid-column: span 2;
-  }
+  grid-column: span 2;
 `
