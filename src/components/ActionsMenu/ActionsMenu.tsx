@@ -4,7 +4,7 @@ import useActionsMenuStyle from '../../hooks/useActionsMenuStyle'
 import { EIcon } from '../Icon/Icon'
 import * as S from './ActionsMenu.styled'
 
-interface IActionsMenuProps {
+type ActionsMenuProps = {
   container: React.RefObject<HTMLDivElement>
   isOpen: boolean
   onClose: () => void
@@ -14,7 +14,7 @@ export default function ActionsMenu({
   container,
   isOpen = false,
   onClose,
-}: IActionsMenuProps) {
+}: ActionsMenuProps) {
   const [actionsMenuStyle] = useActionsMenuStyle(container)
   const modalRoot = document.querySelector('#modal_root')
   if (!modalRoot) return null

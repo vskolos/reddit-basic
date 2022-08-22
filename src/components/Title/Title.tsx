@@ -7,7 +7,7 @@ export enum ETitleType {
   Post = 'h3',
 }
 
-interface ITitleProps {
+type TitleProps = {
   className?: string
   type: ETitleType
   text: string
@@ -19,7 +19,7 @@ export default function Title({
   type,
   text,
   onClick = noop,
-}: ITitleProps) {
+}: TitleProps) {
   return (
     <S.Title as={type} type={type} className={className} onClick={onClick}>
       {text}

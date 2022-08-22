@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../app/store'
 import { fetchUser } from '../app/userSlice'
 
-export interface IUserData {
+export type UserData = {
   name?: string
   iconImg?: string
 }

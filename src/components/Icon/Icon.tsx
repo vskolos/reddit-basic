@@ -33,11 +33,11 @@ export enum EIcon {
   Upvote,
 }
 
-interface IIconProps {
+type IconProps = {
   type: EIcon
 }
 
-export default function Icon({ type }: IIconProps) {
+export default function Icon({ type }: IconProps) {
   switch (type) {
     case EIcon.Alert:
       return <AlertIcon />

@@ -3,12 +3,12 @@ import Button from '../Button/Button'
 import { EIcon } from '../Icon/Icon'
 import * as S from './VotesCounter.styled'
 
-interface IVotesCounterProps {
+type VotesCounterProps = {
   className?: string
   votes: string
 }
 
-export default function VotesCounter({ className, votes }: IVotesCounterProps) {
+export default function VotesCounter({ className, votes }: VotesCounterProps) {
   return (
     <S.Votes className={className}>
       <Button icon={EIcon.Upvote} />

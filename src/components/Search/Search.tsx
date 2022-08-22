@@ -2,11 +2,11 @@ import React from 'react'
 import Icon, { EIcon } from '../Icon/Icon'
 import * as S from './Search.styled'
 
-interface ISearchProps {
+type SearchProps = {
   className?: string
 }
 
-export default function Search({ className }: ISearchProps) {
+export default function Search({ className }: SearchProps) {
   return (
     <S.Search className={className}>
       <S.Icon>

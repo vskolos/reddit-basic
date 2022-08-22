@@ -3,7 +3,7 @@ import noop from '../../utils/noop'
 import Icon, { EIcon } from '../Icon/Icon'
 import * as S from './Button.styled'
 
-interface IButtonProps {
+type ButtonProps = {
   className?: string
   icon?: EIcon
   text?: string
@@ -17,7 +17,7 @@ export default function Button({
   text,
   reversed = false,
   onClick = noop,
-}: IButtonProps) {
+}: ButtonProps) {
   return (
     <S.Button className={className} onClick={onClick}>
       {icon !== undefined && !reversed && (

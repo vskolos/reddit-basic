@@ -1,12 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectAllComments } from '../../app/commentsSlice'
-import { RootState } from '../../app/store'
 import usePostCommentsData from '../../hooks/usePostCommentsData'
 import Comment from '../Comment/Comment'
 import * as S from './Comments.styled'
 
-export interface IComment {
+export type Comment = {
   kind: string
   data: {
     id: string
@@ -16,20 +15,21 @@ export interface IComment {
     replies:
       | ''
       | {
-          data: { children: IComment[] }
+          data: { children: Comment[] }
         }
   }
 }
 
-interface ICommentsProps {
+type CommentsProps = {
   className?: string
   postId: string
 }
 
-export default function Comments({ className, postId }: ICommentsProps) {
+export default function Comments({ className, postId }: CommentsProps) {
+  usePostCommentsData(postId)
   const comments = useSelector(selectAllComments)
 
-  function createCommentsNodes(commentsData: IComment[]) {
+  function createCommentsNodes(commentsData: Comment[]) {
     const comments = commentsData
     if (!comments) return null
 

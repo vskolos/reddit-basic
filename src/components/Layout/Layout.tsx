@@ -1,10 +1,10 @@
 import React from 'react'
 import * as S from './Layout.styled'
 
-interface ILayoutProps {
+type LayoutProps = {
   children?: React.ReactNode
 }
 
-export default function Layout({ children }: ILayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return <S.Layout>{children}</S.Layout>
 }

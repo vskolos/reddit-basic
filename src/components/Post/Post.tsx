@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../app/store'
-import usePostCommentsData from '../../hooks/usePostCommentsData'
 import usePostModal from '../../hooks/usePostModal'
 import counterLabel from '../../utils/counterLabel'
 import createdAtLabel from '../../utils/createdAtLabel'
@@ -12,7 +11,7 @@ import { ETitleType } from '../Title/Title'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import * as S from './Post.styled'
 
-export interface IPost {
+export type PostData = {
   data: {
     id: string
     author: string
@@ -29,13 +28,12 @@ export interface IPost {
   kind: string
 }
 
-interface IPostProps {
-  post: IPost
+type PostProps = {
+  post: PostData
   onClose?: () => void
 }
 
-export default function Post({ post, onClose }: IPostProps) {
-  usePostCommentsData(post.data.id)
+export default function Post({ post, onClose }: PostProps) {
   const [modal] = usePostModal(onClose)
   const name = useSelector((state: RootState) => state.user.data.name)
   const data = post.data

@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { IUserData } from '../hooks/useUserData'
+import { UserData } from '../hooks/useUserData'
 import axios from 'axios'
 
 type UserState = {
-  data: IUserData
+  data: UserData
   status: 'idle' | 'loading' | 'success' | 'error'
 }
 
@@ -37,7 +37,7 @@ export const userSlice = createSlice({
       })
       .addCase(
         fetchUser.fulfilled,
-        (state, action: PayloadAction<IUserData>) => {
+        (state, action: PayloadAction<UserData>) => {
           state.status = 'success'
           state.data = action.payload
         }

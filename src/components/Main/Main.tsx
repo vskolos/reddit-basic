@@ -1,9 +1,9 @@
 import React from 'react'
 
-interface ILayoutProps {
+type LayoutProps = {
   children?: React.ReactNode
 }
 
-export default function Main({ children }: ILayoutProps) {
+export default function Main({ children }: LayoutProps) {
   return <main>{children}</main>
 }

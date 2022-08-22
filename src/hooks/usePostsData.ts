@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { IPost } from '../components/Post/Post'
+import { PostData } from '../components/Post/Post'
 import { RootState } from '../app/store'
 import { fetchPosts } from '../app/postsSlice'
 
-export interface IPostsData {
-  children?: IPost[]
+export type PostsData = {
+  children?: PostData[]
 }
 
 export default function usePostsData() {

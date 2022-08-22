@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { IPostsData } from '../hooks/usePostsData'
+import { PostsData } from '../hooks/usePostsData'
 import axios from 'axios'
 
 type PostsState = {
-  data: IPostsData
+  data: PostsData
   status: 'idle' | 'loading' | 'success' | 'error'
 }
 
@@ -39,7 +39,7 @@ export const postsSlice = createSlice({
       })
       .addCase(
         fetchPosts.fulfilled,
-        (state, action: PayloadAction<IPostsData>) => {
+        (state, action: PayloadAction<PostsData>) => {
           state.status = 'success'
           state.data = action.payload
         }

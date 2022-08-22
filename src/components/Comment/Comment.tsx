@@ -4,7 +4,7 @@ import { EIcon } from '../Icon/Icon'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import * as S from './Comment.styled'
 
-interface ICommentProps {
+type CommentProps = {
   className?: string
   children?: React.ReactNode
   name: string
@@ -18,7 +18,7 @@ export default function Comment({
   created,
   name,
   text,
-}: ICommentProps) {
+}: CommentProps) {
   const [isReplyFormOpen, setIsReplyFormOpen] = useState(false)
   const replyFormRef = useRef<HTMLFormElement>(null)
 

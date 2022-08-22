@@ -4,16 +4,16 @@ import counterLabel from '../../utils/counterLabel'
 import ActionsMenu from '../ActionsMenu/ActionsMenu'
 import Button from '../Button/Button'
 import { EIcon } from '../Icon/Icon'
-import Post, { IPost } from '../Post/Post'
+import Post, { PostData } from '../Post/Post'
 import { ETitleType } from '../Title/Title'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import * as S from './Card.styled'
 
-interface ICardProps {
-  post: IPost
+type CardProps = {
+  post: PostData
 }
 
-export default function Card({ post }: ICardProps) {
+export default function Card({ post }: CardProps) {
   const data = post.data
   const [isPostModalOpen, setIsPostModalOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)

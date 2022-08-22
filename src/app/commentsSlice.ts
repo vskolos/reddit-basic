@@ -5,10 +5,10 @@ import {
 } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { IComment } from '../components/Comments/Comments'
+import { Comment } from '../components/Comments/Comments'
 import { RootState } from './store'
 
-const commentsAdapter = createEntityAdapter<IComment>({
+const commentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment) => comment.data.id,
 })
 
@@ -47,7 +47,7 @@ export const commentsSlice = createSlice({
       })
       .addCase(
         fetchComments.fulfilled,
-        (state, action: PayloadAction<IComment[]>) => {
+        (state, action: PayloadAction<Comment[]>) => {
           state.status = 'success'
           commentsAdapter.setAll(state, action.payload)
         }

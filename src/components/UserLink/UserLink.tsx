@@ -9,7 +9,7 @@ export enum EUserLinkType {
   Post,
 }
 
-export interface IUserLinkProps {
+export type UserLinkProps = {
   className?: string
   type: EUserLinkType
   name?: string
@@ -23,7 +23,7 @@ export default function UserLink({
   name = 'Аноним',
   iconImg = '',
   href = '#',
-}: IUserLinkProps) {
+}: UserLinkProps) {
   return (
     <S.Link href={href} className={className}>
       <S.Avatar type={type}>

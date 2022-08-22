@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './CommentForm.styled'
 
-interface ICommentFormProps {
+type CommentFormProps = {
   className?: string
   username?: string
   formRef?: React.RefObject<HTMLFormElement>
@@ -13,7 +13,7 @@ export default function CommentForm({
   username,
   value = '',
   formRef,
-}: ICommentFormProps) {
+}: CommentFormProps) {
   const [commentValue, setCommentValue] = useState(value)
   return (
     <S.Form
