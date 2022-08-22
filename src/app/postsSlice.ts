@@ -22,7 +22,7 @@ export const fetchPosts = createAsyncThunk(
   'posts/fetch',
   async (token: string) => {
     const response = await axios.get(
-      'https://oauth.reddit.com/r/memes.json?sr_detail=true',
+      'https://oauth.reddit.com/best.json?sr_detail=true',
       {
         headers: {
           Authorization: `bearer ${token}`,
