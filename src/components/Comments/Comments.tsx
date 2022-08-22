@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectAllComments } from '../../app/commentsSlice'
+import { RootState } from '../../app/store'
 import usePostCommentsData from '../../hooks/usePostCommentsData'
 import Comment from '../Comment/Comment'
 import * as S from './Comments.styled'
@@ -26,8 +27,12 @@ type CommentsProps = {
 }
 
 export default function Comments({ className, postId }: CommentsProps) {
-  usePostCommentsData(postId)
   const comments = useSelector(selectAllComments)
+  const commentsStatus = useSelector(
+    (state: RootState) => state.comments.status
+  )
+
+  usePostCommentsData(postId)
 
   function createCommentsNodes(commentsData: Comment[]) {
     const comments = commentsData
@@ -56,7 +61,11 @@ export default function Comments({ className, postId }: CommentsProps) {
 
   return (
     <S.Comments className={className}>
-      {createCommentsNodes(comments)}
+      {commentsStatus === 'loading' ? (
+        <div style={{ textAlign: 'center' }}>Загрузка комментариев...</div>
+      ) : (
+        createCommentsNodes(comments)
+      )}
     </S.Comments>
   )
 }

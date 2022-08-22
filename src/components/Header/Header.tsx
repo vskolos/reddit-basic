@@ -11,6 +11,7 @@ import * as S from './Header.styled'
 export default function Header() {
   const token = useSelector((state: RootState) => state.token.value)
   const user = useSelector((state: RootState) => state.user.data)
+  const userStatus = useSelector((state: RootState) => state.user.status)
 
   useUserData()
 
@@ -20,11 +21,11 @@ export default function Header() {
         <S.HeaderUserLink
           type={EUserLinkType.Header}
           href={
-            token === ''
+            !token || token === ''
               ? 'https://www.reddit.com/api/v1/authorize?client_id=q5I_sEYc8T_LBNdsM0x_dg&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity'
               : '#'
           }
-          name={user?.name}
+          name={userStatus === 'loading' ? 'Загрузка...' : user?.name}
           iconImg={user?.iconImg}
         />
         <S.HeaderSearch />

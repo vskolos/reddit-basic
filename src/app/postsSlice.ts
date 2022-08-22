@@ -1,17 +1,22 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import {
+  createAsyncThunk,
+  createEntityAdapter,
+  createSlice,
+} from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { PostsData } from '../hooks/usePostsData'
 import axios from 'axios'
+import { PostData } from '../components/Post/Post'
+import { RootState } from './store'
 
-type PostsState = {
-  data: PostsData
+const postsAdapter = createEntityAdapter<PostData>({
+  selectId: (post) => post.data.id,
+})
+
+const initialState = postsAdapter.getInitialState<{
   status: 'idle' | 'loading' | 'success' | 'error'
-}
-
-const initialState: PostsState = {
-  data: {},
+}>({
   status: 'idle',
-}
+})
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetch',
@@ -24,7 +29,7 @@ export const fetchPosts = createAsyncThunk(
         },
       }
     )
-    return response.data.data
+    return response.data.data.children
   }
 )
 
@@ -39,9 +44,9 @@ export const postsSlice = createSlice({
       })
       .addCase(
         fetchPosts.fulfilled,
-        (state, action: PayloadAction<PostsData>) => {
+        (state, action: PayloadAction<PostData[]>) => {
           state.status = 'success'
-          state.data = action.payload
+          postsAdapter.setAll(state, action.payload)
         }
       )
       .addCase(fetchPosts.rejected, (state, action) => {
@@ -52,3 +57,7 @@ export const postsSlice = createSlice({
 })
 
 export default postsSlice.reducer
+
+export const { selectAll: selectAllPosts } = postsAdapter.getSelectors(
+  (state: RootState) => state.posts
+)

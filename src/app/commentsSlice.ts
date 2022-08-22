@@ -12,7 +12,9 @@ const commentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment) => comment.data.id,
 })
 
-const initialState = commentsAdapter.getInitialState({
+const initialState = commentsAdapter.getInitialState<{
+  status: 'idle' | 'loading' | 'success' | 'error'
+}>({
   status: 'idle',
 })
 
