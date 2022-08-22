@@ -59,6 +59,7 @@ export default function Post({ post, onClose }: PostProps) {
         <S.PostVotesCounter votes={counterLabel(data.score)} />
         <S.Content>
           <Image src={data.url} />
+          <S.Text>{data.selftext}</S.Text>
         </S.Content>
         <S.PostCommentForm username={name} />
         <S.PostComments postId={data.id} />

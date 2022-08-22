@@ -89,6 +89,12 @@ export const Content = styled.div`
   }
 `
 
+export const Text = styled.p`
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+`
+
 export const PostVotesCounter = styled(VotesCounter)`
   @media (min-width: 1024px) {
     grid-row: 1;
