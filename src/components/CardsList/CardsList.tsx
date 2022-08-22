@@ -9,24 +9,17 @@ import * as S from './CardsList.styled'
 export default function CardsList() {
   const posts = useSelector(selectAllPosts)
   const postsStatus = useSelector((state: RootState) => state.posts.status)
-  const children: React.ReactNode[] = []
 
   usePostsData()
 
-  if (posts) {
-    posts.forEach((post) => {
-      children.push(
-        <li key={post.data.id}>
-          <Card post={post} />
-        </li>
-      )
-    })
-  }
-
   return (
     <S.List>
-      {children.length > 0 ? (
-        children
+      {posts.length > 0 ? (
+        posts.map((post) => (
+          <li key={post.data.id}>
+            <Card post={post} />
+          </li>
+        ))
       ) : (
         <div style={{ textAlign: 'center' }}>
           {postsStatus === 'loading' ? 'Загрузка постов...' : 'Нет постов'}

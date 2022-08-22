@@ -35,14 +35,9 @@ export default function Comments({ className, postId }: CommentsProps) {
   usePostCommentsData(postId)
 
   function createCommentsNodes(commentsData: Comment[]) {
-    const comments = commentsData
-    if (!comments) return null
-
-    const children: React.ReactNode[] = []
-
-    comments.forEach((comment) => {
+    return commentsData.map((comment) => {
       if (comment.kind === 'more') return null
-      children.push(
+      return (
         <Comment
           key={comment.data.id}
           name={comment.data.author}
@@ -55,8 +50,6 @@ export default function Comments({ className, postId }: CommentsProps) {
         />
       )
     })
-
-    return children
   }
 
   return (
