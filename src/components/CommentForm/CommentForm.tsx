@@ -1,27 +1,29 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import * as S from './CommentForm.styled'
 
 type CommentFormProps = {
   className?: string
   username?: string
-  formRef?: React.RefObject<HTMLFormElement>
   value?: string
+  focus?: boolean
 }
 
 export default function CommentForm({
   className,
   username,
   value = '',
-  formRef,
+  focus = false,
 }: CommentFormProps) {
   const [commentValue, setCommentValue] = useState(value)
+  const textAreaRef = useCallback((textArea) => {
+    if (!textArea || !focus) return
+    textArea.setSelectionRange(textArea.value.length, textArea.value.length)
+    textArea.focus()
+  }, [])
   return (
-    <S.Form
-      className={className}
-      onSubmit={(e) => e.preventDefault()}
-      ref={formRef}
-    >
+    <S.Form className={className} onSubmit={(e) => e.preventDefault()}>
       <S.TextArea
+        ref={textAreaRef}
         name="comment"
         placeholder={`${
           username ? username : 'Аноним'
