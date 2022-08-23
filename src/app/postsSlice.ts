@@ -14,22 +14,27 @@ const postsAdapter = createEntityAdapter<PostData>({
 
 const initialState = postsAdapter.getInitialState<{
   status: 'idle' | 'loading' | 'success' | 'error'
+  after: string
 }>({
   status: 'idle',
+  after: '',
 })
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetch',
-  async (token: string) => {
+  async ({ token, after }: { token: string; after: string }) => {
     const response = await axios.get(
       'https://oauth.reddit.com/best.json?sr_detail=true',
       {
         headers: {
           Authorization: `bearer ${token}`,
         },
+        params: {
+          after: after,
+        },
       }
     )
-    return response.data.data.children
+    return response.data.data
   }
 )
 
@@ -44,9 +49,13 @@ export const postsSlice = createSlice({
       })
       .addCase(
         fetchPosts.fulfilled,
-        (state, action: PayloadAction<PostData[]>) => {
+        (
+          state,
+          action: PayloadAction<{ after: string; children: PostData[] }>
+        ) => {
           state.status = 'success'
-          postsAdapter.setAll(state, action.payload)
+          state.after = action.payload.after
+          postsAdapter.setMany(state, action.payload.children)
         }
       )
       .addCase(fetchPosts.rejected, (state, action) => {

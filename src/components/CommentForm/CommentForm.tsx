@@ -25,9 +25,7 @@ export default function CommentForm({
       <S.TextArea
         ref={textAreaRef}
         name="comment"
-        placeholder={`${
-          username ? username : 'Аноним'
-        }, оставьте ваш комментарий`}
+        placeholder={`${username ?? 'Аноним'}, оставьте ваш комментарий`}
         value={commentValue}
         onChange={(e) => setCommentValue(e.target.value)}
       />

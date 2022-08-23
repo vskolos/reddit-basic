@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 type TokenState = {
-  value?: string
+  value: string
 }
 
 const initialState: TokenState = {

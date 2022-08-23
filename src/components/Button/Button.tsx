@@ -9,6 +9,7 @@ type ButtonProps = {
   text?: string
   reversed?: boolean
   onClick?: () => void
+  disabled?: boolean
 }
 
 export default function Button({
@@ -17,9 +18,10 @@ export default function Button({
   text,
   reversed = false,
   onClick = noop,
+  disabled = false,
 }: ButtonProps) {
   return (
-    <S.Button className={className} onClick={onClick}>
+    <S.Button className={className} onClick={onClick} disabled={disabled}>
       {icon !== undefined && !reversed && (
         <S.Icon>
           <Icon type={icon} />
