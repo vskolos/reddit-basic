@@ -12,39 +12,42 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Post from './components/Post/Post'
 import Token from './components/Token/Token'
 import Title, { ETitleType } from './components/Title/Title'
+import { StyleSheetManager } from 'styled-components'
 
 function AppComponent() {
   useToken()
 
   return (
-    <Layout>
-      <Header />
-      <Main>
-        <Routes>
-          <Route
-            path="*"
-            element={
-              <Title
-                type={ETitleType.Page}
-                text="404 – Страница не найдена. Нажмите для перехода на главную"
-                href="/"
-              />
-            }
-          />
-          <Route path="/" element={<Navigate to="posts" replace />} />
-          <Route path="auth" element={<Token />} />
-          <Route path="posts" element={<CardsList />}>
-            <Route path=":id" element={<Post />} />
-          </Route>
-        </Routes>
-      </Main>
-    </Layout>
+    <StyleSheetManager disableCSSOMInjection>
+      <Layout>
+        <GlobalStyle />
+        <Header />
+        <Main>
+          <Routes>
+            <Route
+              path="*"
+              element={
+                <Title
+                  type={ETitleType.Page}
+                  text="404 – Страница не найдена. Нажмите для перехода на главную"
+                  href="/"
+                />
+              }
+            />
+            <Route path="/" element={<Navigate to="posts" replace />} />
+            <Route path="auth" element={<Token />} />
+            <Route path="posts" element={<CardsList />}>
+              <Route path=":id" element={<Post />} />
+            </Route>
+          </Routes>
+        </Main>
+      </Layout>
+    </StyleSheetManager>
   )
 }
 
 export const App = hot(() => (
   <Provider store={store}>
-    <GlobalStyle />
     <AppComponent />
   </Provider>
 ))

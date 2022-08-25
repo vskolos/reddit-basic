@@ -4,15 +4,12 @@ import ReactDOM from 'react-dom/server'
 import { App } from '../App'
 import { StaticRouter } from 'react-router-dom/server'
 import compression from 'compression'
-import helmet from 'helmet'
+
+const PORT = process.env.PORT || 3000
 
 const app = express()
+
 app.use(compression())
-app.use(
-  helmet({
-    contentSecurityPolicy: false,
-  })
-)
 
 const htmlTemplate = (markup: string): string => `
   <!DOCTYPE html>
@@ -52,6 +49,6 @@ app.get('*', (req, res) => {
   )
 })
 
-app.listen(3000, () => {
-  console.log('server started on port http://localhost:3000')
+app.listen(PORT, () => {
+  console.log(`server started on port http://localhost:${PORT}`)
 })
