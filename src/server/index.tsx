@@ -3,8 +3,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/server'
 import { App } from '../App'
 import { StaticRouter } from 'react-router-dom/server'
+import compression from 'compression'
+import helmet from 'helmet'
 
 const app = express()
+app.use(compression())
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+)
 
 const htmlTemplate = (markup: string): string => `
   <!DOCTYPE html>
