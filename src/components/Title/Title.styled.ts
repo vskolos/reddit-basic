@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { ETitleType } from './Title'
 
@@ -15,4 +16,9 @@ export const Title = styled.p<ITitleProps>`
     font-size: ${(props) => (props.type === ETitleType.Page ? 28 : 20)}px;
     line-height: ${(props) => (props.type === ETitleType.Page ? 33 : 23)}px;
   }
+`
+
+export const TitleLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
 `

@@ -4,10 +4,11 @@ import counterLabel from '../../utils/counterLabel'
 import ActionsMenu from '../ActionsMenu/ActionsMenu'
 import Button from '../Button/Button'
 import { EIcon } from '../Icon/Icon'
-import Post, { PostData } from '../Post/Post'
+import { PostData } from '../Post/Post'
 import { ETitleType } from '../Title/Title'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import * as S from './Card.styled'
+import { Link } from 'react-router-dom'
 
 type CardProps = {
   post: PostData
@@ -15,7 +16,6 @@ type CardProps = {
 
 export default function Card({ post }: CardProps) {
   const data = post.data
-  const [isPostModalOpen, setIsPostModalOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -31,11 +31,7 @@ export default function Card({ post }: CardProps) {
           <S.PublishedLabel>опубликовано </S.PublishedLabel>
           {createdAtLabel(data.created)}
         </S.CreatedAt>
-        <S.CardTitle
-          type={ETitleType.Post}
-          text={data.title}
-          onClick={() => setIsPostModalOpen(true)}
-        />
+        <S.CardTitle type={ETitleType.Post} text={data.title} href={data.id} />
       </S.Info>
       <S.CardImage src={data.url} />
       <S.Controls>
@@ -60,9 +56,6 @@ export default function Card({ post }: CardProps) {
           onClose={() => setIsMenuOpen(false)}
         />
       </S.Dropdown>
-      {isPostModalOpen && (
-        <Post post={post} onClose={() => setIsPostModalOpen(false)} />
-      )}
     </S.Card>
   )
 }

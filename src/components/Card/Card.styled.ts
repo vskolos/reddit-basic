@@ -80,7 +80,7 @@ export const CardTitle = styled(Title)`
     max-width: 672px;
   }
 
-  &::before {
+  & > a::before {
     position: absolute;
     inset: 0;
     content: '';

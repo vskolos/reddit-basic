@@ -1,5 +1,4 @@
 import React from 'react'
-import noop from '../../utils/noop'
 import * as S from './Title.styled'
 
 export enum ETitleType {
@@ -11,18 +10,18 @@ type TitleProps = {
   className?: string
   type: ETitleType
   text: string
-  onClick?: () => void
+  href?: string
 }
 
 export default function Title({
   className = '',
   type,
   text,
-  onClick = noop,
+  href = '',
 }: TitleProps) {
   return (
-    <S.Title as={type} type={type} className={className} onClick={onClick}>
-      {text}
+    <S.Title as={type} type={type} className={className}>
+      {href ? <S.TitleLink to={href}>{text}</S.TitleLink> : text}
     </S.Title>
   )
 }

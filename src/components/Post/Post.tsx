@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useSelector } from 'react-redux'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { selectPostById } from '../../app/postsSlice'
 import { RootState } from '../../app/store'
 import usePostModal from '../../hooks/usePostModal'
 import counterLabel from '../../utils/counterLabel'
@@ -28,14 +30,17 @@ export type PostData = {
   kind: string
 }
 
-type PostProps = {
-  post: PostData
-  onClose?: () => void
-}
+export default function Post() {
+  const navigate = useNavigate()
+  const [modal] = usePostModal(() => navigate('..'))
 
-export default function Post({ post, onClose }: PostProps) {
-  const [modal] = usePostModal(onClose)
+  const { id } = useParams()
+  if (!id) return null
+
   const name = useSelector((state: RootState) => state.user.data.name)
+  const post = useSelector((state: RootState) => selectPostById(state, id))
+  if (!post) return <Navigate to="/404" />
+
   const data = post.data
 
   const modalRoot = document.querySelector('#modal_root')
@@ -63,7 +68,7 @@ export default function Post({ post, onClose }: PostProps) {
         </S.Content>
         <S.PostCommentForm username={name} />
         <S.PostComments postId={data.id} />
-        <S.CloseButton icon={EIcon.Close} onClick={onClose} />
+        <S.CloseButton icon={EIcon.Close} onClick={() => navigate('..')} />
       </S.Post>
     </S.Backdrop>,
     modalRoot
