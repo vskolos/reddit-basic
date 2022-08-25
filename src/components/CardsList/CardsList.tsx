@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPosts, selectAllPosts } from '../../app/postsSlice'
 import { RootState } from '../../app/store'
@@ -19,18 +19,19 @@ export default function CardsList() {
 
   return (
     <S.List>
-      {posts.length > 0 ? (
+      {posts.length > 0 || postsStatus === 'loading' ? (
         posts.map((post) => (
           <S.Item key={post.data.id}>
             <Card post={post} />
           </S.Item>
         ))
       ) : (
-        <div style={{ textAlign: 'center' }}>
-          {postsStatus === 'loading' ? 'Загрузка постов...' : 'Нет постов'}
-        </div>
+        <div style={{ textAlign: 'center' }}>Нет постов</div>
       )}
       <S.Item ref={postsListBottom}>
+        {postsStatus === 'loading' && (
+          <div style={{ textAlign: 'center' }}>Загрузка постов...</div>
+        )}
         {loadsCount === 2 && postsStatus === 'success' && (
           <S.MoreButton
             text="Загрузить ещё"
