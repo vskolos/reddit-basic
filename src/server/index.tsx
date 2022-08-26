@@ -36,7 +36,6 @@ const htmlTemplate = (markup: string, token?: string) => `
 app.use('/static', express.static('./dist/client'))
 
 app.get('/auth', (req, res) => {
-  console.log('auth')
   axios
     .post(
       'https://www.reddit.com/api/v1/access_token',
