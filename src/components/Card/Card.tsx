@@ -8,7 +8,6 @@ import { PostData } from '../Post/Post'
 import { ETitleType } from '../Title/Title'
 import UserLink, { EUserLinkType } from '../UserLink/UserLink'
 import * as S from './Card.styled'
-import { Link } from 'react-router-dom'
 
 type CardProps = {
   post: PostData

@@ -12,7 +12,6 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Post from './components/Post/Post'
 import Token from './components/Token/Token'
 import Title, { ETitleType } from './components/Title/Title'
-import { StyleSheetManager } from 'styled-components'
 
 function AppComponent() {
   useToken()
