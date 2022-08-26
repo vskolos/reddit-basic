@@ -18,31 +18,29 @@ function AppComponent() {
   useToken()
 
   return (
-    <StyleSheetManager disableCSSOMInjection>
-      <Layout>
-        <GlobalStyle />
-        <Header />
-        <Main>
-          <Routes>
-            <Route
-              path="*"
-              element={
-                <Title
-                  type={ETitleType.Page}
-                  text="404 – Страница не найдена. Нажмите для перехода на главную"
-                  href="/"
-                />
-              }
-            />
-            <Route path="/" element={<Navigate to="posts" replace />} />
-            <Route path="auth" element={<Token />} />
-            <Route path="posts" element={<CardsList />}>
-              <Route path=":id" element={<Post />} />
-            </Route>
-          </Routes>
-        </Main>
-      </Layout>
-    </StyleSheetManager>
+    <Layout>
+      <GlobalStyle />
+      <Header />
+      <Main>
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <Title
+                type={ETitleType.Page}
+                text="404 – Страница не найдена. Нажмите для перехода на главную"
+                href="/"
+              />
+            }
+          />
+          <Route path="/" element={<Navigate to="posts" replace />} />
+          <Route path="auth" element={<Token />} />
+          <Route path="posts" element={<CardsList />}>
+            <Route path=":id" element={<Post />} />
+          </Route>
+        </Routes>
+      </Main>
+    </Layout>
   )
 }
 
