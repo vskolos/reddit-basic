@@ -11,7 +11,7 @@ const app = express()
 
 app.use(compression())
 
-const htmlTemplate = (markup: string): string => `
+const htmlTemplate = (markup: string) => `
   <!DOCTYPE html>
   <html lang="ru">
 
