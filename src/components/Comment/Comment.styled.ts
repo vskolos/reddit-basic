@@ -19,10 +19,6 @@ export const CommentBlock = styled.div`
       padding-left: 30px;
     }
   }
-
-  & > div {
-    grid-column: span 2;
-  }
 `
 
 export const Comment = styled.div`
