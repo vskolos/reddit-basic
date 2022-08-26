@@ -1,13 +1,12 @@
 {
   "name": "reactapp",
   "version": "1.0.0",
-  "main": "webpack.config.js",
   "scripts": {
     "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
     "build": "env NODE_ENV=production webpack --config webpack.config.js",
-    "dev": "env NODE_ENV=development node ./bin/dev.js",
+    "dev": "env NODE_ENV=development CLIENT_ID=q5I_sEYc8T_LBNdsM0x_dg SECRET=6bZfNyyY2iAcut3iyhHLjDZIFr7ZNg URI=http://localhost:3000 node ./bin/dev.js",
     "test": "jest",
-    "start": "node ./dist/server/server.js"
+    "start": "env CLIENT_ID=BEOpUg1GNL6MjnUOJlyHkg SECRET=pc-BZa5q44yguwIf6G0_Le4NQbySeQ URI=https://vskolos-reddit-react-skillbox.herokuapp.com node ./dist/server/server.js"
   },
   "author": "",
   "license": "ISC",

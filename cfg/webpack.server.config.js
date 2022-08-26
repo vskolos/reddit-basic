@@ -29,6 +29,8 @@ module.exports = {
   plugins: [
     new DefinePlugin({
       'process.env.CLIENT_ID': `'${process.env.CLIENT_ID}'`,
+      'process.env.SECRET': `'${process.env.SECRET}'`,
+      'process.env.URI': `'${process.env.URI}'`,
     }),
   ],
 }

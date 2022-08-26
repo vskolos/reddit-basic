@@ -8,7 +8,11 @@ const IS_DEV = NODE_ENV === 'development'
 const IS_PROD = NODE_ENV === 'production'
 const DEV_PLUGINS = [new CleanWebpackPlugin(), new HotModuleReplacementPlugin()]
 const COMMON_PLUGINS = [
-  new DefinePlugin({ 'process.env.CLIENT_ID': `'${process.env.CLIENT_ID}'` }),
+  new DefinePlugin({
+    'process.env.CLIENT_ID': `'${process.env.CLIENT_ID}'`,
+    'process.env.SECRET': `'${process.env.SECRET}'`,
+    'process.env.URI': `'${process.env.URI}'`,
+  }),
 ]
 
 function setupDevtool() {
