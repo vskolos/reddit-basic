@@ -66,7 +66,7 @@ export default function Post() {
           <Image src={data.url} />
           <S.Text>{data.selftext}</S.Text>
         </S.Content>
-        <S.PostCommentForm username={name} />
+        <S.PostCommentForm username={name} storeon={true} />
         <S.PostComments postId={data.id} />
         <S.CloseButton icon={EIcon.Close} onClick={() => navigate('..')} />
       </S.Post>

@@ -12,6 +12,8 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Post from './components/Post/Post'
 import Token from './components/Token/Token'
 import Title, { ETitleType } from './components/Title/Title'
+import { StoreContext } from 'storeon/react'
+import { storeon } from './app/storeon'
 
 function AppComponent() {
   useToken()
@@ -45,6 +47,8 @@ function AppComponent() {
 
 export const App = hot(() => (
   <Provider store={store}>
-    <AppComponent />
+    <StoreContext.Provider value={storeon}>
+      <AppComponent />
+    </StoreContext.Provider>
   </Provider>
 ))
