@@ -1,7 +1,6 @@
 {
   "name": "reactapp",
   "version": "1.0.0",
-  "main": "webpack.config.js",
   "scripts": {
     "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
     "build": "env NODE_ENV=production webpack --config webpack.config.js",
