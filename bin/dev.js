@@ -46,7 +46,7 @@ compiler.run((err) => {
   })
 
   nodemon({
-    script: path.resolve(__dirname, '../dist/server/server.js'),
+    script: path.resolve(__dirname, '../dist/server/index.js'),
     watch: [
       path.resolve(__dirname, '../dist/server'),
       path.resolve(__dirname, '../dist/client'),
