@@ -5,6 +5,9 @@ import { App } from '../App'
 import { StaticRouter } from 'react-router-dom/server'
 import compression from 'compression'
 import axios from 'axios'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 const PORT = process.env.PORT || 3000
 
@@ -67,7 +70,13 @@ app.get('/auth', (req, res) => {
     .catch(console.log)
 })
 
-app.get('/', (req, res) => {
+app.get('/login', (_, res) => {
+  return res.redirect(
+    `https://www.reddit.com/api/v1/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&state=random_string&redirect_uri=${process.env.URI}/auth&duration=permanent&scope=read submit identity`
+  )
+})
+
+app.get('/', (_, res) => {
   return res.redirect('/posts')
 })
 

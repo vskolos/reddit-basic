@@ -20,11 +20,7 @@ export default function Header() {
       <S.Info>
         <S.HeaderUserLink
           type={EUserLinkType.Header}
-          href={
-            !token || token === ''
-              ? `https://www.reddit.com/api/v1/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&state=random_string&redirect_uri=${process.env.URI}/auth&duration=permanent&scope=read submit identity`
-              : '#'
-          }
+          href={!token || token === '' ? `/login` : '#'}
           name={userStatus === 'loading' ? 'Загрузка...' : user?.name}
           iconImg={user?.iconImg}
         />

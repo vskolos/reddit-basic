@@ -2,6 +2,7 @@ const path = require('path')
 const { HotModuleReplacementPlugin, DefinePlugin } = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+require('dotenv').config()
 
 const NODE_ENV = process.env.NODE_ENV
 const IS_DEV = NODE_ENV === 'development'

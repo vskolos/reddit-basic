@@ -2,10 +2,8 @@
   "name": "reactapp",
   "version": "1.0.0",
   "scripts": {
-    "build:dev": "env NODE_ENV=development CLIENT_ID=q5I_sEYc8T_LBNdsM0x_dg SECRET=6bZfNyyY2iAcut3iyhHLjDZIFr7ZNg URI=http://localhost:3000 webpack --config webpack.config.js",
-    "build": "env NODE_ENV=production CLIENT_ID=BEOpUg1GNL6MjnUOJlyHkg SECRET=pc-BZa5q44yguwIf6G0_Le4NQbySeQ URI=https://vskolos-reddit-react-skillbox.herokuapp.com webpack --config webpack.config.js",
-    "dev": "env NODE_ENV=development CLIENT_ID=q5I_sEYc8T_LBNdsM0x_dg SECRET=6bZfNyyY2iAcut3iyhHLjDZIFr7ZNg URI=http://localhost:3000 node ./bin/dev.js",
-    "test": "jest",
+    "dev": "node ./bin/dev.js",
+    "build": "webpack --config webpack.config.js",
     "start": "node ./dist/server/server.js"
   },
   "author": "",
@@ -23,6 +21,7 @@
     "babel-plugin-styled-components": "^2.0.7",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "compression": "^1.7.4",
+    "dotenv": "^16.0.2",
     "express": "^4.17.1",
     "html-webpack-plugin": "^4.5.2",
     "nodemon": "^2.0.12",
