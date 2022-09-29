@@ -11,7 +11,7 @@ module.exports = {
   entry: path.resolve(__dirname, '../src/server/index.tsx'),
   output: {
     path: path.resolve(__dirname, '../dist/server'),
-    filename: 'server.js',
+    filename: 'index.js',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],

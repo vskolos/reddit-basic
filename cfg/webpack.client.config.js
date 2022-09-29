@@ -40,7 +40,7 @@ module.exports = {
   entry: setupEntry(),
   output: {
     path: path.resolve(__dirname, '../dist/client'),
-    filename: 'client.js',
+    filename: 'index.js',
     publicPath: '/static/',
   },
   module: {
