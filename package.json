@@ -1,5 +1,5 @@
 {
-  "name": "reactapp",
+  "name": "reddit-feed",
   "version": "1.0.0",
   "scripts": {
     "dev": "node ./bin/dev.js",
